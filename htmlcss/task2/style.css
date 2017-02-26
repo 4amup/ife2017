@@ -81,11 +81,23 @@ table th {
 tbody tr:last-child {
   background-color: grey;
 }
+#register {
+  font-size: 12px;
+}
+#register form{
+  width: 90%;
+}
 #register h3 {
   border-left: 3px solid grey;
   height: 2em;
   line-height: 2em;
   padding-left: 1em;
+}
+#register input[type='submit'] {
+  background-color: royalblue;
+  display: block;
+  height: 2em;
+  width: 100%;
 }
 footer {
   background-color: #000000;
