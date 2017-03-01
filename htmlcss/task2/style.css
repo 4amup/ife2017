@@ -109,6 +109,10 @@ tbody tr:last-child {
 #register input, #register select, #register textarea {
   vertical-align: middle;
   margin-left: -2px;
+  padding: 3px;
+}
+#register textarea {
+  overflow: hidden;
 }
 #register input[type='submit'] {
   background-color: royalblue;
