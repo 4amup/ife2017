@@ -112,7 +112,7 @@ tbody tr:last-child {
   padding: 3px;
 }
 #register textarea {
-  overflow: hidden;
+  resize: none;
 }
 #register input[type='submit'] {
   background-color: royalblue;
