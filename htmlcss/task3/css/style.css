@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background-color: #dedede;
+    margin: 2em;
+    overflow: auto;
+    text-align: center;
+}
+.container>div {
+    background-color: #fff;
+    margin: 2em;
+    display: inline-block;
+}
+.team {
+    float: left;
+    padding: 1em;
+    width: 200px;
+}
+.team img {
+    float: left;
+    height: 80px;
+    width: 80px;
+}
+.team p {
+    float: right;
+}
+.container .profile {
+    margin: 2em auto;
+    padding: 1em;
+    width: 50%;
+}
+.container .teammate {
+    float: right;
+    width: 120px;
+}
+.container .teammate div img {
+    height: 80px;
+    width: 80px;
+    margin: 1em 0;
+}
