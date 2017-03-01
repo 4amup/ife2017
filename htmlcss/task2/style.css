@@ -1,4 +1,4 @@
-body, nav, li, ul, a {
+* {
   margin: 0;
   padding: 0;
 }
@@ -6,7 +6,7 @@ body {
   background: #dedede;
 }
 nav {
-  background: #333333;
+  background: lightslategrey;
   display: block;
   height: 60px;
   padding: 0 30px;
@@ -46,11 +46,14 @@ hgroup h3, hgroup span {
 hgroup span {
   font-size: 10px;
 }
-p {
+article p {
   text-indent: 2em;
 }
 article ul {
   list-style: none;
+  margin-left: 30px;
+}
+article ol {
   margin-left: 30px;
 }
 #imgbox div {
@@ -81,11 +84,8 @@ table th {
 tbody tr:last-child {
   background-color: grey;
 }
-#register {
+#register form {
   font-size: 12px;
-}
-#register form{
-  width: 90%;
 }
 #register h3 {
   border-left: 3px solid grey;
@@ -93,9 +93,30 @@ tbody tr:last-child {
   line-height: 2em;
   padding-left: 1em;
 }
+#register div {
+  margin: .5em;
+}
+/*盒子模式深刻理解*/
+#register label {
+  display: inline-block;
+  width: 45%;
+  text-align: right;
+}
+/*这里把label转换成了盒子元素，让文字向右对齐*/
+#register span {
+  margin-left: 45%;
+}
+#register input, #register select, #register textarea {
+  vertical-align: middle;
+  margin-left: -2px;
+}
 #register input[type='submit'] {
   background-color: royalblue;
+  border: 1px solid royalblue;
+  border-radius: 5px;
+  color: #ffffff;
   display: block;
+  font-size: 16px;
   height: 2em;
   width: 100%;
 }
