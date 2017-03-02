@@ -1,10 +1,16 @@
 * {
     margin: 0;
     padding: 0;
+    font-style: "微软雅黑";
 }
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+/*这个属性挺实用，可以省去很多算数过程，直接就把内容+pdding+border的宽度设置了出来*/
 div {
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
+/*border-box*/
 .container, .top, .footer, .content1, .content2 {
     margin: 0 auto;
     width: 892px;
@@ -12,6 +18,8 @@ div {
 .container {
     background: #ccc;
     height: 1386px;
+    padding: 0 44px;
+    position: relative;
     width: 980px;
 }
 .top {
@@ -19,39 +27,76 @@ div {
     height: 61px;
     background: lightcoral;
 }
-
+.content1 {
+    position: relative;
+}
 .footer {
-    position: initial;
+    position: absolute;
     background: #000;
     border-top: 1px solid #938e8c;
     height: 60px;
-}
-.mask {
-    display: inline-flex;
-    height: 301px;
-    width: 191px;
-}
+    bottom: 0;
 
+}
 /*----------------content1-----------------*/
-.content1 {
-    clear: both;
+.paper {
+    width: 641px;
 }
 .imgbox {
     position: relative;
-    width: 641px;
+    height: 301px;
 }
 .imgbox img {
     position: absolute;
     left: 0;
     top: 0;
 }
+.mask {
+    display: inline-flex;
+    height: 301px;
+    width: 191px;
+}
 #maskleft {
-    background-color: rgba(1, 2, 3, .2);
+    background-color: rgba(75,184,107,.4);
     position: absolute;
     left: 0;
 }
 #maskright {
-    background-color: rgba(1, 2, 3, .2);
+    background-color: rgba(204,80,91,.4);
     position: absolute;
     right: 0;
+}
+/*--------------------------------*/
+.sidebar {
+    border-top: 2px solid #cc8091;
+    height: 301px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 203px;
+}
+.sidebar h1 {
+    color: #000000;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 40px;
+    text-decoration: underline;
+}
+.sidebar h1::first-letter {
+    font-size: 30px;
+    text-decoration: none;
+}
+.sidebar h2 {
+    color: #676767;
+    font-size: 12px;
+    font-style: italic;
+    font-family: "楷体";
+    line-height: 10px;
+}
+.sidebar>p {
+    color: #75b86b;
+    font-size: 116px;
+    font-style: italic;
+    font-weight: bold;
+    margin-left: -15px;
 }
