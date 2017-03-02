@@ -7,12 +7,10 @@ body {
   background: #dedede;
 }
 .container {
-  position: relative;
   width: 65%;
 }
 nav {
   background: lightslategrey;
-  display: block;
   height: 60px;
   padding: 0 30px;
   width: auto;
@@ -45,6 +43,10 @@ article {
   padding: 20px;
   box-shadow: 2px 2px 2px #333333;
 }
+article>img {
+  margin: 1em;
+  width: 40%;
+}
 hgroup h3, hgroup span {
   color: grey;
 }
@@ -52,6 +54,7 @@ hgroup span {
   font-size: 10px;
 }
 article p {
+  line-height: 1.5em;
   text-indent: 2em;
 }
 article ul {
@@ -61,7 +64,13 @@ article ul {
 article ol {
   margin-left: 30px;
 }
+/*图片盒子的流式布局*/
+#img {
+  display: flex;
+  flex-direction: row;
+}
 #imgbox div {
+  display: inline-block;
   border: 1px solid #333333;
   height: 120px;
   margin: 10px;
@@ -72,6 +81,7 @@ article ol {
   width: 80%;
   margin: 20px auto;
 }
+
 table {
   border-collapse: collapse;
   font-size: 13px;
