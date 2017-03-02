@@ -7,7 +7,7 @@ body {
   background: #dedede;
 }
 .container {
-  float: left;
+  position: relative;
   width: 65%;
 }
 nav {
@@ -91,7 +91,10 @@ tbody tr:last-child {
 }
 /*-------------------------注册的边栏部分--------------------------*/
 #register {
-  float: right;
+  display: inline-block;
+  position: absolute;
+  top: 60px;
+  right: 0;
   width: 360px;
 }
 #register form {
