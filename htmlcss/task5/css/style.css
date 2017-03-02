@@ -2,8 +2,13 @@
   margin: 0;
   padding: 0;
 }
+/*先主体后部分，先布局再细节，顺序结构*/
 body {
   background: #dedede;
+}
+.container {
+  float: left;
+  width: 65%;
 }
 nav {
   background: lightslategrey;
@@ -84,6 +89,11 @@ table th {
 tbody tr:last-child {
   background-color: grey;
 }
+/*-------------------------注册的边栏部分--------------------------*/
+#register {
+  float: right;
+  width: 360px;
+}
 #register form {
   font-size: 12px;
 }
@@ -99,20 +109,23 @@ tbody tr:last-child {
 /*盒子模式深刻理解*/
 #register label {
   display: inline-block;
-  width: 45%;
+  width: 40%;
   text-align: right;
 }
 /*这里把label转换成了盒子元素，让文字向右对齐*/
 #register span {
-  margin-left: 45%;
+  color: darkgray;
+  margin-left: 40%;
+  padding: 4px;
 }
 #register input, #register select, #register textarea {
   vertical-align: middle;
-  margin-left: -2px;
   padding: 3px;
 }
 #register textarea {
+  font-size: 16px;
   resize: none;
+  vertical-align: top;
 }
 #register input[type='submit'] {
   background-color: royalblue;
@@ -126,6 +139,7 @@ tbody tr:last-child {
 }
 footer {
   background-color: #000000;
+  display: block;
   height: 80px;
   color: #ffffff;
   text-align: center;
