@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+div {
+    box-sizing: content-box;
+}
+.container, .top, .footer, .content1, .content2 {
+    margin: 0 auto;
+    width: 892px;
+}
+.container {
+    background: #ccc;
+    height: 1386px;
+    width: 980px;
+}
+.top {
+    border-bottom: 2px solid #938e8c;
+    height: 61px;
+    background: lightcoral;
+}
+
+.footer {
+    position: initial;
+    background: #000;
+    border-top: 1px solid #938e8c;
+    height: 60px;
+}
+.mask {
+    display: inline-flex;
+    height: 301px;
+    width: 191px;
+}
+
+/*----------------content1-----------------*/
+.content1 {
+    clear: both;
+}
+.imgbox {
+    position: relative;
+    width: 641px;
+}
+.imgbox img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#maskleft {
+    background-color: rgba(1, 2, 3, .2);
+    position: absolute;
+    left: 0;
+}
+#maskright {
+    background-color: rgba(1, 2, 3, .2);
+    position: absolute;
+    right: 0;
+}
