@@ -1,0 +1,21 @@
+.container {
+    background-color: #ccc;
+    height: 200px;
+    margin: auto;
+    position: relative;
+    width: 400px;
+}
+#left, #right {
+    background-color: #fc0;
+    height: 50px;
+    width: 50px;
+}
+#left {
+    border-bottom-right-radius: 50px;
+}
+#right {
+    border-top-left-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
