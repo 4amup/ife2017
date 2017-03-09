@@ -76,6 +76,12 @@ div {
 .content1 .text>div {
     padding-right: 1.5em;
 }
+.content1 .text div:nth-child(1), .content1 .text div:nth-child(2) {
+    width: 350px;
+}
+.content1 .text>div:last-child {
+    padding-right: 0;
+}
 /*--------------------------------*/
 .sidebar {
     border-top: 2px solid #cc8091;
