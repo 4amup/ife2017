@@ -13,13 +13,16 @@ h1, h2, h3, h4 {
 div {
     box-sizing: border-box;
 }
+body {
+    background-color: #ccc;
+}
 /*border-box*/
 .container, .top, .footer, .content1, .content2 {
     margin: 0 auto;
     width: 892px;
 }
 .container {
-    background: #ccc;
+    background: #fff;
     height: 1386px;
     padding: 0 44px;
     position: relative;
@@ -30,9 +33,12 @@ div {
     height: 61px;
     background: lightcoral;
 }
-.content1 {
+.content1, .content2 {
     position: relative;
     margin: 35px auto;
+}
+.content2 {
+    height: 606px;
 }
 .footer {
     position: absolute;
@@ -82,6 +88,44 @@ div {
 .content1 .text>div:last-child {
     padding-right: 0;
 }
+.content1 .text div h3 {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: .2em 0;
+}
+.content1 .text div p {
+    color: #231815;
+    font-size: 12px;
+    font-family: "微软雅黑";
+    line-height: 16px;
+    opacity: .7;
+}
+/*使用一个position定位*/
+.content1 .text div:last-child {
+    position: relative;
+}
+.content1 .text ul {
+    display: block;
+    font-size: 12px;
+    opacity: .7;
+    position: absolute;
+    bottom: 0;
+}
+.content1 .text ul span {
+    color: #cd4a48;
+    font-style: italic;
+}
+/*--------colors----------------*/
+.content1 .text div:nth-child(1) h3 {
+    color: #418c59;
+}
+.content1 .text div:nth-child(2) h3 {
+    color: #d2994f;
+}
+.content1 .text div:last-child h3 {
+    color: #cc7680;
+}
 /*--------------------------------*/
 .sidebar {
     border-top: 2px solid #cc8091;
@@ -115,4 +159,134 @@ div {
     font-style: italic;
     font-weight: bold;
     margin-left: -15px;
+}
+/*------------------------------content2-------------------------------------*/
+/*-------------------display-------------------*/
+.content2 .paper1, .content .paper2 {
+    display: inline-block;
+}
+.content2 .paper1 {
+    width: 45%;
+}
+.content2 .paper2 {
+    float: right;
+    width: 460px;
+    position: relative;
+}
+.content2 .paper2 .box {
+    background-color: #eeeed6;
+    position: relative;
+    width: 459px;
+    height: 318px;
+}
+.content2 .paper2 #bottom-left{
+    background-color: #d55d5c;
+    width: 260px;
+    height: 160px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.content2 .paper2 #bottom-right{
+    width: 199px;
+    height: 160px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/*---------------------style---------------------*/
+.content2 .paper1 h1 {
+    color: #11456b;
+    font-family: "黑体";
+    font-weight: bold;
+    font-size: 33px;
+}
+.content2 .paper1 hgroup {
+    border-bottom: 2px solid #11456b;
+    padding-bottom: .5em;
+    margin-bottom: 1.5em;
+}
+.content2 .paper1 h1:first-child {
+    font-size: 42px;
+}
+.content2 .paper1 h1 span {
+    font-size: 72px;
+    color: #f5e327;
+    font-style: italic;
+}
+.content2 .paper1 p {
+    text-indent: 2em;
+    font-family: "宋体";
+    font-size: 12px;
+    line-height: 16px;
+    padding: .2em;
+}
+.content2 .paper1 p:nth-child(2) {
+    text-indent: unset;
+}
+.content2 #first-letter {
+    color: #f5e327;
+    display: block;
+    font-size: 70px;
+    font-family: "微软雅黑";
+    float: left;
+    padding: .1em;
+    line-height: 60px;
+}
+.content2 .paper1 img {
+    float: right;
+    margin: 1.2em;
+}
+.content2 .paper2 .title-img {
+    background-image: url('../img/img2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 458px;
+    height: 275px;
+    margin-bottom: 2em;
+    position: relative;
+    display: inline-block;
+}
+.content2 .paper2 .title-img .mask {
+    position: absolute;
+    bottom: 0;
+    background-color:rgba(134,131,126, .3);
+    width: 100%;
+    height: 61px;
+}
+.content2 .paper2 .title-img h1 {
+    border-left: 3px #72b16c solid;
+    height: 44px;
+    font-size: 26px;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    line-height: 44px;
+    margin: 8px 0 8px 1.2em;
+    padding-left: .5em;
+}
+.content2 .paper2 .title-img span {
+    margin: 8px 0;
+    margin-left: .2em;
+    line-height: 44px;
+    vertical-align: bottom;
+    color: #72b16c;
+    font-size: 12px;
+    font-style: italic;
+    font-family: "微软雅黑";
+    letter-spacing: 1.4em;
+    padding-left: .5em;
+}
+
+.content2 .paper2 .box {
+    padding: 1.5em;
+}
+.content2 .paper2 .box ul {
+    padding-left: 2em;
+}
+.content2 .paper2 .box ul li {
+    list-style-image: url('../img/bluelist.png');
+    line-height: 20px;
+    font-size: 16px;
+    font-family: "宋体";
+    color: #5a5b5b;
 }
