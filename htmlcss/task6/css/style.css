@@ -183,6 +183,28 @@ body {
     font-weight: bold;
     margin-left: -15px;
 }
+.sidebar div {
+    color: #cc8091;
+    font-family: "微软雅黑";
+    position: relative;
+}
+.sidebar div p:first-child {
+    font-size: 55px;
+    position: absolute;
+    left: 0;
+}
+.sidebar div p:nth-child(2) {
+    font-size: 21px;
+    position: absolute;
+    left: 100px;
+    top: 20px;
+}
+.sidebar div p:nth-child(3) {
+    font-size: 12px;
+    position: absolute;
+    left: 100px;
+    top: 45px;
+}
 /*------------------------------content2-------------------------------------*/
 /*-------------------display-------------------*/
 .content2 {
