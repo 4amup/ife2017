@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
 ul, li {
     list-style: none;
     display: inline-block;
@@ -11,10 +14,12 @@ body nav a {
     text-decoration: none;
     color: #000;
 }
+/*------------------nav-start------------------*/
 nav {
     height: 60px;
-    /*background-color: #fff;*/
-    background-color: lightgrey;
+    min-width: 1280px;
+    background-color: #fff;
+    /*background-color: lightgrey;*/
     font-size: 15px;
 }
 nav ul {
@@ -30,9 +35,8 @@ nav ul li a:hover {
     border-bottom: 3px #e8504f solid;
 }
 nav span a {
-    background-image: url('../img/header-logo.png');
+    background-image: url('../img/logosmall.png');
     background-position: left;
-    background-size: 30px;
     background-repeat: no-repeat;
     display: inline-block;
     font-family: "黑体";
@@ -51,4 +55,148 @@ nav #login a {
 }
 nav #login a:hover {
     border-bottom: none;
+}
+/*------------------welcome------------------*/
+.container .welcome {
+    background-image: url('../img/pic1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    margin: 0 auto;
+    height: 690px;
+    position: relative;
+}
+.container .welcome div{
+    position: absolute;
+    left: 100px;
+    top: 250px;
+}
+.container .welcome div h1 {
+    font-size: 60px;
+    line-height: 1.5em;
+    margin-left: -5px;
+}
+.container .welcome div p {
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 1.5em;
+}
+.container .welcome button {
+    margin: 40px 0;
+    height: 60px;
+    width: 330px;
+    background-color: #e8504f;
+    border: none;
+    font-size: 30px;
+    color: #fff;
+}
+/*------------------introduction------------------*/
+.container .introduction {
+    height: 250px;
+    min-width: 1280px;
+    /*background-color: lightslategray;*/
+    display: flex;
+    justify-content: space-around;
+    font-family: "黑体";
+    font-size: 15px;
+}
+.container .introduction i {
+    display: block;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container .introduction div p {
+    border-right: 2px solid grey;
+    padding: .5em 5em;
+    text-align: center;
+}
+.container .introduction div:last-child p {
+    border: none;
+}
+.container .introduction div:nth-child(1) i {
+    background-image: url('../img/item3.png');
+}
+.container .introduction div:nth-child(2) i {
+    background-image: url('../img/item2.png');
+}
+.container .introduction div:nth-child(3) i{
+    background-image: url('../img/item1.png');
+}
+.container .introduction div:nth-child(4) i{
+    background-image: url('../img/item4.png');
+}
+/*------------------slogan------------------*/
+.container .slogan {
+    height: 360px;
+    background-color: #ededed;
+}
+.container .slogan i {
+    display: block;
+    height: 150px;
+    background-image: url('../img/header-logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.container .slogan h1 {
+    color: #a0a0a0;
+    text-align: center;
+    font-size: 50px;
+    font-family: '黑体;
+}
+/*------------------city-info------------------*/
+.container .city-info {
+    color: #fff;
+    height: 340px;
+    background-image: url('../img/pic2.png');
+    background-size: cover;
+    text-align: center;
+    padding: 3em 0;
+}
+.container .city-info h2 {
+    font-weight: lighter;
+    font-size: 24px;
+}
+.container .city-info hr {
+    width: 30px;
+    border: 1px #fff solid;
+    margin: .5em auto 1em auto;
+}
+.container .city-info p {
+    font-size: 14px;
+    font-weight: lighter;
+    padding-bottom: 50px;
+}
+.container .city-info select, .container .city-info button {
+    width: 240px;
+    height: 36px;
+    border: none;
+    margin: 0 12px;
+    padding: 0 10px;
+}
+.container .city-info select {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*清除默认的下拉箭头，很少用到的属性*/
+    background-image: url('../img/downarrow.png');
+    background-position-x: 220px;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-color: #e3e3e5;
+}
+.container .city-info select:hover {
+    border: 1px solid #e8504f;
+}
+.container .city-info select option {
+    background-color: #e3e3e5;
+}
+.container .city-info .country div {
+    float: right;
+    width: 10px;
+    height: 10px;
+    background-color: #e8504f;
+}
+.container .city-info button {
+    background-color: #e8504f;
+    color: #fff;
 }
