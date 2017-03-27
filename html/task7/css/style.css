@@ -200,3 +200,28 @@ nav #login a:hover {
     background-color: #e8504f;
     color: #fff;
 }
+/*------------------activity-------------------*/
+.container .activity {
+    height: 600px;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 100px;
+    text-align: center;
+}
+.container .activity .img-box div {
+    padding: 10px 8px;
+    border: 1px #dadada solid;
+}
+.container .activity h4 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+.container .activity h3 {
+    font-size: 22px;
+    margin: 5px 0;
+}
+.container .activity p {
+    font-size: 12px;
+    color: grey;
+}
