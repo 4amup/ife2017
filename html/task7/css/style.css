@@ -225,3 +225,48 @@ nav #login a:hover {
     font-size: 12px;
     color: grey;
 }
+/*------------------more-info-------------------*/
+.container .more-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.container .more-info div {
+    height: 560px;
+    width: 33.3%;
+    margin: 0;
+    text-align: center;
+}
+.container .more-info div button {
+    border: 1px solid #e8504f;
+    /*设置了一个透明的按钮背景*/
+    background-color: rgba(0, 0, 0, 0);
+}
+.container .more-info div:first-child {
+    background-image: url('../img/pic4.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    width: 66.6%;
+}
+.container .more-info div:first-child h2 {
+    margin-top: 100px;
+    font-size: 50px;
+}
+.container .more-info div:first-child h1 {
+    font-size: 150px;
+}
+.container .more-info div:first-child p {
+    font-size: 20px;
+}
+.container .more-info div:nth-child(3) {
+    background-color: #e8504f;
+    color: #fff;
+}
+.container .more-info div:last-child {
+    background-image: url('../img/pic5.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
