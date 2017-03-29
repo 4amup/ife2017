@@ -241,6 +241,14 @@ nav #login a:hover {
     border: 1px solid #e8504f;
     /*设置了一个透明的按钮背景*/
     background-color: rgba(0, 0, 0, 0);
+    height: 2em;
+    width: 8em;
+    font-size: 20px;
+    font-family: "黑体";
+    color: #e8504f;
+}
+.container .more-info .touch-more {
+    padding: 180px 80px 0 80px;
 }
 .container .more-info div:first-child {
     background-image: url('../img/pic4.png');
@@ -249,6 +257,13 @@ nav #login a:hover {
     background-position: center;
     color: white;
     width: 66.6%;
+    position: relative;
+    padding-top: 30px;
+}
+.container .more-info div:first-child img {
+    position: absolute;
+    top: 275px;
+    right: -1px;
 }
 .container .more-info div:first-child h2 {
     margin-top: 100px;
@@ -269,4 +284,36 @@ nav #login a:hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
+}
+.container .more-info div:last-child img {
+    position: absolute;
+    left: -1px;
+    top: 275px;
+}
+.container .more-info hr {
+    border: 1px #fff solid;
+    width: 2em;
+    margin: 20px auto;
+}
+.container .more-info h2 {
+    font-size: 22px;
+}
+/*----个性修改----*/
+.container .more-info div:nth-child(4) hr {
+    border: 1px grey solid;
+}
+.container .more-info div:nth-child(2) button {
+    font-size: 14px;
+    margin: 20px 0;
+}
+.container .more-info div:nth-child(2) p {
+    font-size: 14px;
+    font-family: "仿宋";
+    line-height: 2.5em;
+    text-align: left;
+}
+.container .more-info div:nth-child(3) button {
+    color: #fff;
+    border: 1px #fff solid;
 }
