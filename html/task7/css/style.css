@@ -230,6 +230,7 @@ nav #login a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    min-width: 1280px;
 }
 .container .more-info div {
     height: 560px;
@@ -313,7 +314,14 @@ nav #login a:hover {
     line-height: 2.5em;
     text-align: left;
 }
+.container .more-info div:nth-child(2) span {
+    color: #e8504f
+}
 .container .more-info div:nth-child(3) button {
     color: #fff;
     border: 1px #fff solid;
+}
+/*------------------volunteer-------------------*/
+.container .volunteer {
+    min-width: 1280px;
 }
