@@ -391,3 +391,58 @@ nav #login a:hover {
     font-family: "黑体";
     font-size: 16px;
 }
+/*------------------contact-------------------*/
+.container .contact {
+    color: #fff;
+    height: 360px;
+    background-color: #33363f;
+    text-align: center;
+    padding: 100px;
+}
+.container .contact h2 {
+    font-size: 20px;
+    font-family: "黑体";
+    margin-bottom: .5em;
+}
+.container .contact p {
+    color: #fff;
+    font-size: 14px;
+    font-family: "仿宋";
+    line-height: 1.5em;
+}
+.container .contact form {
+    margin: 30px;
+    padding: 20px auto;
+}
+.container .contact form input {
+    width: 25em;
+    font-size: 16px;
+    padding: .5em;
+    border: none;
+    height: 2.5em;
+}
+.container .contact input[type="submit"] {
+    width: 6em;
+    border: none;
+    color: #fff;
+    font-family: "黑体";
+    background-color: #6f6f77;
+    margin-left: -5px;
+}
+.container .contact ul a {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../img/qq.png');
+    background-repeat: no-repeat;
+    margin: 5px 10px;
+}
+.container .contact ul li:nth-child(2) a {
+    background-image: url('../img/weibo.png');
+}
+.container .contact ul li:nth-child(3) a {
+    background-image: url('../img/twitter.png');
+}
+.container .contact ul li:nth-child(4) a {
+    background-image: url('../img/w3c.png');
+}
