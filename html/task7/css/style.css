@@ -14,12 +14,11 @@ body nav a {
     text-decoration: none;
     color: #000;
 }
-/*------------------nav-start------------------*/
+/*------------------nav------------------*/
 nav {
     height: 60px;
     min-width: 1280px;
     background-color: #fff;
-    /*background-color: lightgrey;*/
     font-size: 15px;
 }
 nav ul {
@@ -445,4 +444,24 @@ nav #login a:hover {
 }
 .container .contact ul li:nth-child(4) a {
     background-image: url('../img/w3c.png');
+}
+/*------------------footer-------------------*/
+footer {
+    height: 60px;
+    background-color: #30303a;
+    line-height: 60px;
+    color: #fff;
+    font-size: 12px;
+}
+footer p {
+    float: left;
+    margin-left: 5em;
+}
+footer span{
+    float: right;
+    margin-right: 5em;
+}
+footer span a {
+    text-decoration: none;
+    color: #fff;
 }
