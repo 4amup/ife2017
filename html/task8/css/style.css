@@ -1,0 +1,9 @@
+div[class^="col"] {
+    background-color: lightpink;
+    color: red;
+    border: 1px #999 solid;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    overflow: hidden;
+}
