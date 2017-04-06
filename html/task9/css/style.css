@@ -1,16 +1,85 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: '黑体';
+    font-size: 14px;
 }
 a {
     text-decoration: none;
     color: #fff;
 }
+/*知乎收藏了这个问题，实现垂直居中的七个方法*/
 nav {
     background-color: #2189c0;
     color: #fff;
     height: 56px;
     padding: 0 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .logo {
+    width: 36px;
+    height: 36px;
+    background-image: url('../img/logo.png');
+}
+nav form {
+    margin-right: 50px;
+    display: flex;
+    height: 30px;
+}
+nav form input {
+    width: 300px;
+    height: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: none;
+    margin-right: 30px;
+    padding-left: 40px;
+}
+nav form .login {
+    padding-left: 20px;
+    line-height: 30px;
+    display: inline-block;
+    background-image: url('../img/login.png');
+    background-repeat: no-repeat;
+    background-position: left;
+}
+nav form button {
+    width: 50px;
+    border: none;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    background-image: url('../img/search.png');
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container {
+    background-color: #eeeeee;
+    min-width: 1280px;
+}
+.container .profile {
+    background-color: #2b2e3d;
+    color: #464f60;
+    width: 265px;
+    padding: 20px;
+    text-align: center;
+}
+.container .profile .person .portrait>div{
+    border: 1px white solid;
+    border-radius: 60px;
+    width: 60px;
+    height: 60px;
+}
+.container .profile .person .fans {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+.container .profile .person .fans div {
+    padding: 0 40px;
+}
+.container .profile .person .fans div:first-child {
+    border-right: 1px #464f60 solid;
 }
