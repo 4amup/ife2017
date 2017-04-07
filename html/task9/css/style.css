@@ -4,6 +4,9 @@
     font-family: '黑体';
     font-size: 14px;
 }
+ul, li {
+    list-style: none;
+}
 a {
     text-decoration: none;
     color: #fff;
@@ -35,7 +38,7 @@ nav form input {
     border-bottom-right-radius: 30px;
     border: none;
     margin-right: 30px;
-    padding-left: 40px;
+    padding: 0 1em;
 }
 nav form .login {
     padding-left: 20px;
@@ -59,18 +62,32 @@ nav form button {
     background-color: #eeeeee;
     min-width: 1280px;
 }
+/*------------------------start-profile------------------------*/
 .container .profile {
     background-color: #2b2e3d;
-    color: #464f60;
+    color: #515a6b;
     width: 265px;
-    padding: 20px;
     text-align: center;
 }
-.container .profile .person .portrait>div{
+.container .profile .portrait {
+    display: flex;
+    justify-content: center;
+    padding: 1.5em;
+}
+.container .profile .portrait div {
     border: 1px white solid;
     border-radius: 60px;
     width: 60px;
     height: 60px;
+    background-image: url('../img/Iverson.jpg');
+    background-size: 62px;
+    background-position: center;
+}
+.container .profile .portrait p {
+    line-height: 62px;
+    font-size: 16px;
+    color: #fff;
+    margin-left: 2em;
 }
 .container .profile .person .fans {
     display: flex;
@@ -82,4 +99,25 @@ nav form button {
 }
 .container .profile .person .fans div:first-child {
     border-right: 1px #464f60 solid;
+}
+/*------------------------start-filesystem------------------------*/
+.container .profile .filesystem {
+    text-align: left;
+}
+.container .profile .filesystem>ul ul {
+    padding: 1em 2em;
+}
+.container .profile .filesystem>ul>li ul li {
+    padding: 1em auto;
+}
+.container .profile .filesystem>ul>li {
+    padding: 1em;
+    padding-left: 3em;
+}
+.container .profile .filesystem>ul>li:hover {
+    color: #fff;
+    background-color: #373d4d;
+}
+.container .profile .filesystem>ul {
+    list-style: circle;
 }
