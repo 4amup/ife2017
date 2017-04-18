@@ -1,123 +1,629 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: '黑体';
-    font-size: 14px;
+/* reset */
+body, header, footer, div, h1, h2, h3, h4, h5, h6, pre, form, figure, fieldset, input, textarea, p, blockquote, th, td{
+  padding:0px;
+  margin:0px;
+  box-sizing: border-box;
 }
-ul, li {
-    list-style: none;
+/*all*/
+li{
+  list-style:none;
 }
-a {
-    text-decoration: none;
-    color: #fff;
+html{
+  height: 100%;
 }
-/*知乎收藏了这个问题，实现垂直居中的七个方法*/
-nav {
-    background-color: #2189c0;
-    color: #fff;
-    height: 56px;
-    padding: 0 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body{
+  height: inherit;
+  font-size:12px;
+  font-family:黑体;
+  background-color: #ececec;
 }
-nav .logo {
-    width: 36px;
-    height: 36px;
-    background-image: url('../img/logo.png');
+a{
+  display:block;
+  text-decoration:none;
+  color:grey;
 }
-nav form {
-    margin-right: 50px;
-    display: flex;
-    height: 30px;
+/*header*/
+#header{
+  height:56px;
+  min-width: 1280px;
+  background-color:#2189bf;
+  display:block;
+  overflow:hidden;
 }
-nav form input {
-    width: 300px;
-    height: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border: none;
-    margin-right: 30px;
-    padding: 0 1em;
+#header #logo{
+  background-image:url("../img/logo.png");
+  background-position:center;
+  background-repeat:no-repeat;
+  float:left;
+  width:36px;
+  height:56px;
+  margin:0 50px
 }
-nav form .login {
-    padding-left: 20px;
-    line-height: 30px;
-    display: inline-block;
-    background-image: url('../img/login.png');
-    background-repeat: no-repeat;
-    background-position: left;
+#header input{
+  float:right;
+  width:230px;
+  height:22px;
+  border-radius:11px;
+  border:none;
+  background-image:url("../img/search.png");
+  background-repeat:no-repeat;
+  background-position:1em;
+  padding:0 2em;
+  margin:15px 0;
 }
-nav form button {
-    width: 50px;
-    border: none;
-    border-bottom-left-radius: 30px;
-    border-top-left-radius: 30px;
-    background-image: url('../img/search.png');
-    background-color: #ffffff;
-    background-repeat: no-repeat;
-    background-position: center;
+#login{
+  float:right;
+  line-height:56px;
+  margin:0 2em;
+  padding:0 1.5em;
+  background-image:url("../img/login.png");
+  background-position:left;
+  background-repeat:no-repeat;
+  color:white;
+  transition-property:color;
+  transition-duration:0.3s;
 }
-.container {
-    background-color: #eeeeee;
-    min-width: 1280px;
+#login:hover, #login:focus{
+  color:black;
 }
-/*------------------------start-profile------------------------*/
-.container .profile {
-    background-color: #2b2e3d;
-    color: #515a6b;
-    width: 265px;
-    text-align: center;
+/*aside*/
+aside{
+  width: 260px;
+  height: 150%;
+  background-color: #2a2d3c;
+  /*使用绝对定位，并使aside显示于最底层*/
+  position: absolute;
+  top: 56px;
+  left: 0;
+  padding: 2em 0;
+  color: #707f94;
 }
-.container .profile .portrait {
-    display: flex;
-    justify-content: center;
-    padding: 1.5em;
+/*profile*/
+.profile>div{
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
-.container .profile .portrait div {
-    border: 1px white solid;
-    border-radius: 60px;
-    width: 60px;
-    height: 60px;
-    background-image: url('../img/Iverson.jpg');
-    background-size: 62px;
-    background-position: center;
+.profile .avatar{
+  width: 60px;
+  height: 60px;
+  margin: auto 1em;
+  background-image: url(../img/back.png),url(../img/back2.png);
+  background-position: center,center;
+  background-repeat: no-repeat, no-repeat;
 }
-.container .profile .portrait p {
-    line-height: 62px;
-    font-size: 16px;
-    color: #fff;
-    margin-left: 2em;
+.profile .username{
+  color: white;
+  margin: auto 1em;
 }
-.container .profile .person .fans {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
+.profile span{
+  padding: .5em 1.5em;
 }
-.container .profile .person .fans div {
-    padding: 0 40px;
+.profile span:nth-child(1){
+  border-right: 1px #707f94 solid;
 }
-.container .profile .person .fans div:first-child {
-    border-right: 1px #464f60 solid;
+/*filelist*/
+.filelist ul{
+  padding: 0;
 }
-/*------------------------start-filesystem------------------------*/
-.container .profile .filesystem {
-    text-align: left;
+.filelist li{
+  padding-left: 2em;
 }
-.container .profile .filesystem>ul ul {
-    padding: 1em 2em;
+.filelist>ul>li{
+  padding-left: 4em;
 }
-.container .profile .filesystem>ul>li ul li {
-    padding: 1em auto;
+.filelist li a{
+  padding: 1em 2em;
 }
-.container .profile .filesystem>ul>li {
-    padding: 1em;
-    padding-left: 3em;
+.filelist li a:hover{
+  color: white;
 }
-.container .profile .filesystem>ul>li:hover {
-    color: #fff;
-    background-color: #373d4d;
+.filelist>ul>li:hover{
+  background-color: #383d4d;
 }
-.container .profile .filesystem>ul {
-    list-style: circle;
+/*首层文件*/
+.filelist>ul>li>a{
+  background-position:left center;
+  background-repeat: no-repeat;
+}
+.filelist>ul>li:nth-child(1)>a{
+  background-image: url(../img/icon5.png);
+}
+.filelist>ul>li:nth-child(2)>a,.filelist>ul>li:nth-child(4)>a,.filelist>ul>li:nth-child(5)>a{
+  background-image: url(../img/icon2.png);
+}
+.filelist>ul>li:nth-child(3)>a{
+  background-image: url(../img/icon4.png);
+}
+.filelist>ul>li:nth-child(6)>a{
+  background-image: url(../img/icon3.png);
+}
+/*二层文件*/
+.filelist>ul>li>ul>li>a{
+  background-image: url(../img/icon6.png);
+  background-position:left center;
+  background-repeat: no-repeat;
+}
+.filelist>ul>li>ul>li>a:hover{
+  background-image: url(../img/icon8.png);
+  background-position:left center;
+  background-repeat: no-repeat;
+}
+/*三层文件*/
+.filelist>ul>li>ul>li>ul>li>a{
+  background-image: url(../img/icon1.png);
+  background-position:left center;
+  background-repeat: no-repeat;
+}
+.filelist>ul>li>ul>li>ul>li>a:hover{
+  background-image: url(../img/icon7.png);
+  background-position:left center;
+  background-repeat: no-repeat;
+}
+/*container*/
+#container{
+  margin-left: 260px;
+  min-width: 1020px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  /*以下位置放调试代码*/
+  /*background-color: red;*/
+  /*height: 100px;*/
+}
+#container header{
+  color: grey;
+  width: 100%;
+  height: 30px;
+  background-color: white;
+}
+#container header p{
+  line-height: 30px;
+  padding: 0;
+  padding-left: 2em;
+  font-family: inherit;
+}
+select{
+  border: 1px #ececec solid;
+  border-radius: 0;
+  background-color: white;
+  /*清除默认的select样式*/
+  appearance:none;  
+  -moz-appearance:none;  
+  -webkit-appearance:none;
+  padding: .3em 1.5em;
+  background: url(../img/downarrow.png) no-repeat right center;
+  background-position: 95%;
+}
+/*block*/
+.block{
+  width: 90%;
+  margin: 15px;
+  /*以下是调试代码*/
+  /*background-color: red;*/
+}
+.block>div{
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 1px grey;
+}
+/*第一栏表单查询 form*/
+.form{
+  height: 90px;
+  background-color: white;
+}
+.form select,input{
+  margin: .2em;
+}
+.form form{
+  height: 100%;
+  display: flex;
+}
+.form form>div{
+  display: flex;
+  margin: auto;
+  padding: 10px;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+}
+.form form>div:nth-child(2){
+  width: 220px;
+}
+.form #buyer, #saler{
+  width: 80%;
+}
+.form .changebuyer{
+  margin-left: 0;
+  text-align: right;
+  background: url(../img/change.png) no-repeat left center;
+  /*width: 5em;*/
+}
+.form .changebuyer a{
+  margin: auto;
+  margin-left: 3px;
+  color: white;
+}
+.form label{
+  color: grey;
+  margin: auto;
+}
+#bigbox{
+  width: 300px;
+}
+#bigbox .widthbig{
+  width: 50%;
+}
+input[type="submit"]{
+  background-color: #2189bf;
+  padding: .5em 1.5em;
+  color: white;
+  border: none;
+  border-radius: 2px;
+}
+/*价格第二栏*/
+.block.price{
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+}
+.block .price>div{
+  padding: 10px;
+}
+/*价格标签里的几个小块*/
+.direction{
+  width: 2.5%;
+  background-image: url(../img/right.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.direction:first-child{
+  transform: rotate(180deg);
+}
+.pricetag{
+  width: 13%;
+}
+.pricetag:hover{
+  border-top: 3px #2189bf solid;
+}
+.pricetag p:first-letter{
+  color: grey;
+  font-size: 16px;
+}
+.pricetag p{
+  font-size: 2em;
+  color: chocolate;
+}
+.history{
+  width: 13%;
+  background-image: url(../img/history.png);
+  background-repeat:no-repeat;
+  background-position: 10px
+}
+.history>a{
+  height: 100%;
+  line-height: 45px;
+  padding-left: 30px;
+  color: black;
+}
+/*成交量 第三栏*/
+.volume{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.volume>p{
+  width: 100%;
+  padding: 5px 0;
+}
+.volume>div{
+  width: 22%;
+  height: 75px;
+  display: flex;
+  flex: row nowrap;
+  justify-content: space-between;
+  border-left: 3px solid;
+  border-radius: 2px;
+}
+.volume>div>div{
+  display: flex;
+  flex-flow: column;
+  align-content: space-between;
+}
+.volume .item .colorblock{
+  width: 60px;
+  height: 50px;
+  margin: auto 0;
+}
+.volume .item:nth-child(2){
+  border-color: #41b09d;
+}
+.volume .item:nth-child(2) .colorblock{
+  background-color: #41b09d;
+}
+.volume .item:nth-child(3){
+  border-color: #3a8ac0 ;
+}
+.volume .item:nth-child(3) .colorblock{
+  background-color: #3a8ac0;
+}
+.volume .item:nth-child(4){
+  border-color: #cd4935;
+}
+.volume .item:nth-child(4) .colorblock{
+  background-color: #cd4935;
+}
+.volume .item:nth-child(5){
+  border-color: #e0cc49 ;
+}
+.volume .item:nth-child(5) .colorblock{
+  background-color: #e0cc49;
+}
+/*第四栏内容 content主要内容*/
+.content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+#container .content header{
+  height: 40px;
+  margin: 0;
+  border-bottom: none;
+  background-color: #ececec;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+ }
+#container .content header p{
+  text-align: left;
+  line-height: 40px;
+}
+.content .datacontainer{
+  width: 39%;
+  height: 350px;
+  padding: 0;
+  margin: 5px 0;
+  border-radius: 5px;
+  /*调试代码*/
+}
+.content .datacontainer:nth-child(1),.content .datacontainer:nth-child(4){
+  width: 60%;
+}
+/*1、tablecontainer项目表格和内容*/
+.tablecontainer .tablebox{
+  margin: auto;
+  margin-top: 1em;
+  width: 90%;
+  height: 80%;
+}
+.tablecontainer .tableborder{
+  border: 1px #ececec solid;
+  border-top: none;
+  border-radius: 5px;
+  padding: 2em;
+  height: 90%;
+}
+.tablecontainer .tabletags{
+  display: flex;
+  border-bottom: 1px #ececec solid;
+}
+/*边框的实现还有点小bug不能在hover时完全隐藏tag的下边*/
+.tablecontainer .tabletags span{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-right: .5em;
+  padding: .5em 2em;
+  background-color: #ececec;
+}
+.tablecontainer .tabletags span:hover{
+  background-color: white;
+  border: 1px #ececec solid;
+  /*border-bottom: none;*/
+  border-bottom: 1px white solid;
+}
+.tablecontainer table{
+  border: 1px black solid;
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 2em;
+}
+.tablecontainer table td:hover{
+  background-color: #ececec;
+}
+/*2、itemwriter 项目写作表*/
+.itemwriter form{
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+.itemwriter label{
+  display: block;
+  color: grey;
+  font-family: Microsoft Yahei;
+  margin: .3em 1em;
+  height: 2em;
+  line-height: 2em;
+}
+.itemwriter table{
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+}
+.itemwriter table td{
+  padding: 0;
+}
+.itemwriter table td:nth-child(1){
+  border-left: none;
+}
+.itemwriter table td:nth-child(2){
+  border-right: none;
+}
+.content .itemwriter input{
+  border: none;
+  text-align: left;
+  margin: .2em;
+  padding: .5em;
+  width: 95%;
+}
+.content .itemwriter textarea{
+  border: none;
+  border-bottom: 1px #ececec solid;
+  resize: none;
+  width: 98%;
+  height: 8em;
+  padding: .5em 1em;
+}
+.itemwriter input[type="radio"]{
+  width: 1em;
+  margin: auto 0;
+
+}
+.itemwriter>form>div{
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+.itemwriter input[type="submit"]{
+  width: 5em;
+  text-align: center;
+  margin-left: 35%; 
+  font-weight: bold;
+}
+/*3、calendar 日历部件*/
+.calendarbox{
+  margin: 1em;
+}
+.timebox, .weekbox, .daycontainer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+/*timebox部件*/
+.timebox{
+  width: 100%;
+  border-bottom: 1px skyblue solid;
+}
+select, button {
+  margin: .5em 0;
+  font-family: inherit;
+  background-color: white;
+  border: 1px grey solid;
+}
+/*weekbox部件*/
+.weekbox{
+  border-bottom: 1px grey solid;
+}
+.weekbox span{
+  margin: 10px;
+  width: 14%;
+}
+/*daycontainer部件*/
+.daycontainer{
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.daybox{
+  width: 13%;
+  margin: .1em;
+}
+.daybox p{
+  text-align: center;
+  margin: .1em;
+  font-family: inherit;
+}
+/*CSS3的属性，nth-child指定间隔7就红两个*/
+.daybox:nth-child(7n) p:first-child, .daybox:nth-child(7n-1) p:first-child{
+  color: red;
+}
+.daybox .holiday{
+  color: red;
+}
+.daymark{
+  border: 1px orange solid;
+}
+/*4、brandlist 汽车品牌排行榜*/
+.content .brandlist .tablecontainer{
+  overflow: hidden;
+  height: 80%;
+  width: 90%;
+  margin: auto;
+}
+.content .brandlist table{
+  border-collapse: collapse;
+  margin: 1em auto;
+  width: 100%;
+}
+.brandlist .bigcol{
+  width: 60%;
+}
+.brandlist .middlecol{
+  width: 25%;
+}
+table,th,td{
+  border: 1px #ececec solid;
+}
+th,td{
+  padding: .5em 1em;
+  margin: .5em;
+  white-space: nowrap;
+}
+.brandlist table>tbody>tr:hover{
+  background-color: #ececec;
+}
+.brandlist .hotbox{
+  width: 70%;
+  margin: .4em;
+  background-color: #cdcdcd;
+  height: .35em;
+  float: right;
+  border-radius: 1px;
+}
+.brandlist .hot{
+  height: 100%;
+  border-radius: 1px;
+}
+/*nth-child()要在同一个父元素下才可以使用*/
+.brandlist table tr:nth-child(1) .hot{
+  background-color: #ea6d52;
+  width: 90%;
+}
+.brandlist table tr:nth-child(2) .hot{
+  background-color: #ee8050;
+  width: 85%;
+}
+.brandlist table tr:nth-child(3) .hot{
+  background-color: #ee8050;
+  width: 81%;
+}
+.brandlist table tr:nth-child(4) .hot{
+  background-color: #a0d6f4;
+  width: 75%;
+}
+.brandlist table tr:nth-child(5) .hot{
+  background-color: #a0d6f4;
+  width: 72%;
+}
+.brandlist table tr:nth-child(6) .hot{
+  background-color: #a0d6f4;
+  width: 70%;
+}
+.brandlist table tr:nth-child(7) .hot{
+  background-color: #a0d6f4;
+  width: 68%;
+}
+.brandlist table tr:nth-child(8) .hot{
+  background-color: #a0d6f4;
+  width: 63%;
+}
+.brandlist table tr:nth-child(9) .hot{
+  background-color: #a0d6f4;
+  width: 50%;
+}
+.brandlist table tr:nth-child(10) .hot{
+  background-color: #a0d6f4;
+  width: 41%;
+}
+.brandlist table tr:nth-child(11) .hot{
+  background-color: #a0d6f4;
+  width: 35%;
 }

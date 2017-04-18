@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*----------color----------*/
+.container {
+    background-color: #ffffee;
+}
+.container div {
+    border: #ff0000 solid 1px;
+    padding: 20px;
+    width: 150px;
+}
+.container div:nth-child(4) {
+    height: 120px;
+}
+.container div:nth-child(3) {
+    height: 100px;
+}
+.container div:nth-child(2) {
+    height: 40px;
+}
+.container .blue {
+    border: #0000f0 solid 1px;
+    height: 200px;
+}
+/*----------style----------*/
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-content: space-around;
+}
