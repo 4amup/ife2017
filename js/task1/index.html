@@ -21,6 +21,16 @@
   在事件处理函数中
   获取aqi-input输入的值，并显示在aqi-display中
   */
+  var mybutton = document.getElementById('button');
+  
+  function displayValue () {
+    let aqiInput = document.getElementById('aqi-input');
+    let aqiDisplay = document.getElementById('aqi-display');
+    val = aqiInput.value;
+    aqiDisplay.textContent = val;
+  };
+
+  mybutton.addEventListener('click', displayValue, false);
 })();
 
 </script>
