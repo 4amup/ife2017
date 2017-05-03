@@ -24,19 +24,23 @@ var aqiData = [
   ["成都", 90],
   ["西安", 100]
 ];
-
 (function () {
-
   /*
   在注释下方编写代码
   遍历读取aqiData中各个城市的数据
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
+  // 先将数据排序
+  aqiData.sort(function(a, b){
+    return b[1] - a[1];
+  });
+  // 再将汉字序列写成数列待用，同时写一个计数器
   var order = ['一', '二', '三', '四', '五', '六', '七', '八', '九']
-  var aqiList = document.getElementById('aqi-list');
   var count = 0;
+  var aqiList = document.getElementById('aqi-list');
+  // 基本的循环家判断的逻辑，大于40的指数
   for(var i = 0; i<aqiData.length; i++) {
-    if(aqiData[i][1] > 60) {
+    if(aqiData[i][1] > 40) {
       var li = document.createElement("li");
       li.textContent = `第${order[count]}名：${aqiData[i][0]}，${aqiData[i][1]}`;
       aqiList.appendChild(li);
