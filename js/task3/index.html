@@ -29,17 +29,22 @@
   <button id="sort-btn">排序</button>
 
 <script type="text/javascript">
-
 /**
  * getData方法
  * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
  * 返回一个数组，格式见函数中示例
  */
 function getData() {
-  /*
-  coding here
-  */
+  var data = [];
+  var source = document.getElementById('source');
+  var list = source.children;
 
+  for(var i=0; i<list.length; i++) {
+    var cityName = list[i].textContent.slice(0, 2);
+    var cityNum = list[i].getElementsByTagName('b')[0].textContent;
+    var city = [cityName, cityNum];
+    data.push(city);
+  }
   /*
   data = [
     ["北京", 90],
@@ -47,9 +52,7 @@ function getData() {
     ……
   ]
   */
-
   return data;
-
 }
 
 /**
@@ -58,7 +61,11 @@ function getData() {
  * 返回一个排序后的数组
  */
 function sortAqiData(data) {
-
+  data.sort(function(a, b){
+    return b[1] - a[1];
+  });
+  return data;
+  console.log(data);
 }
 
 /**
@@ -67,7 +74,15 @@ function sortAqiData(data) {
  * 格式见ul中的注释的部分
  */
 function render(data) {
-
+  // 公用序号数组
+  var order = ['一', '二', '三', '四', '五', '六', '七', '八', '九'];
+  var resortList = document.getElementById('resort');
+  for(var i=0; i<data.length; i++) {
+    var item = document.createElement('li');
+    // 这里使用了ES6的字符串模板
+    item.innerHTML = `第${order[i]}名：${data[i][0]}空气质量：<b>${data[i][1]}</b>`;
+    resortList.appendChild(item);
+  }
 }
 
 function btnHandle() {
@@ -77,11 +92,12 @@ function btnHandle() {
 }
 
 function init() {
-
   // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
-
+  var button = document.getElementById('sort-btn');
+  button.addEventListener('click', btnHandle, false);
 }
 
+// 初始化函数
 init();
 
 </script>
