@@ -2,7 +2,7 @@ var data = []; // 存放数据
 var str = ""; // 更新字符串
 var show = document.getElementById('show');
 
-// 数据更新函数
+// view层的渲染更新
 function render(data){
     // 首先将上次渲染的结果清空
     show.innerHTML = "";
@@ -56,17 +56,43 @@ var rout = document.getElementById('rightOut').onclick = function() {
     data.pop();
     render(data);
 }
-// 排序算法
-document.getElementById('sort').onclick = function() {
+// 排序算法 想想能否用generator实现一步一停
+// document.getElementById('sort').onclick = function() {
+//     let length = data.length;
+//     for(let i=0; i<length-1; i++) {
+//         for(let j=0; j<length-1; j++) {
+//             if(data[j] > data[j+1]) {
+//                 let temp = data[j];
+//                 data[j] = data[j+1];
+//                 data[j+1] = temp;
+//             }
+//         }
+//     }
+//     render(data);
+// }
+
+// 排序算法 尝试用generator实现一步一停
+function* bubbleSort () {
     let length = data.length;
+
     for(let i=0; i<length-1; i++) {
         for(let j=0; j<length-1; j++) {
             if(data[j] > data[j+1]) {
                 let temp = data[j];
                 data[j] = data[j+1];
                 data[j+1] = temp;
+                console.log(`没事走一步`);
+                yield render(data);
             }
         }
     }
-    render(data);
+}
+
+var bsort = bubbleSort();
+
+document.getElementById('sort').onclick = function () {
+    let timer = setInterval("bsort.next()", 1000);
+    if(sort.done === true) {
+        clearInterval(timer);
+    }
 }
