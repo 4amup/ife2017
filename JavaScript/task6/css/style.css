@@ -1,0 +1,11 @@
+#show {
+    display: flex;
+}
+#show div {
+    background-color: red;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 1em;
+    margin: .5em;
+}
