@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <title>一个验证的任务</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            
+            <div class="page-header">
+              <h1>task1</h1>
+            </div>
+            
+            <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputname" class="control-label col-sm-4">名称</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="name" id="inputname" class="form-control">
+                            <span class="help-block">必填，长度为4~16个中文字符</span>
+                        </div class="col-sm-4">
+                        <div>
+                            <button type="button" id="button" class="btn btn-primary">校验</button>
+                        </div>
+                    </div>
+            </form>
+            
+        </div>
+        <script>
+            var inputname = document.getElementById('inputname');
+            var button = document.getElementById('button');
+            var helpBlock = document.getElementsByClassName('help-block')[0];
+            var tips = document.getElementsByClassName('form-group')[0];
+            button.onclick = function () {
+                let length = inputname.value.length;
+                // 提示为空
+                if(length === 0) {
+                    helpBlock.textContent = '姓名不能为空';
+                    tips.setAttribute('class', 'has-error');
+                    return;
+                }
+                if(length<4 || length>16) {
+                    helpBlock.textContent = '字符数不符合要求';
+                    tips.setAttribute('class', 'has-error');
+                    return;
+                }
+                helpBlock.textContent = '校验通过';
+                tips.setAttribute('class', 'has-success');
+            }
+        </script>
+    </body>
+</html>
