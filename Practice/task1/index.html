@@ -28,6 +28,7 @@
             
         </div>
         <script>
+            // 这里注意setAttribute将会把原先的class属性覆盖掉，所以要先取值，在+=
             var inputname = document.getElementById('inputname');
             var button = document.getElementById('button');
             var helpBlock = document.getElementsByClassName('help-block')[0];
@@ -37,16 +38,18 @@
                 // 提示为空
                 if(length === 0) {
                     helpBlock.textContent = '姓名不能为空';
-                    tips.setAttribute('class', 'has-error');
+                    tips.setAttribute('class', tips.getAttribute('class') + ' ' + 'has-error');
                     return;
                 }
+                // 提示字符多和少
                 if(length<4 || length>16) {
                     helpBlock.textContent = '字符数不符合要求';
-                    tips.setAttribute('class', 'has-error');
+                    tips.setAttribute('class', tips.getAttribute('class') + ' ' + 'has-error');
                     return;
                 }
+                // 提示校验成功
                 helpBlock.textContent = '校验通过';
-                tips.setAttribute('class', 'has-success');
+                tips.setAttribute('class', tips.getAttribute('class') + ' ' + 'has-success');
             }
         </script>
     </body>
