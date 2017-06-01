@@ -137,7 +137,7 @@ function validate(id, item, target) {
     }
 }
 
-// 为input绑定事件
+// 为input绑定事件，由于blur、focus不会冒泡，所以设置为捕获阶段
 document.body.addEventListener('focus', focusFn, true);
 document.body.addEventListener('blur', blurFn, true);
 document.getElementById('submit').onclick = function() {

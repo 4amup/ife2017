@@ -1,0 +1,1 @@
+由于blur、focus是不会冒泡的，所以addEventLisener的布尔值需要设置为true
