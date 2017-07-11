@@ -1,0 +1,11 @@
+form {
+  text-align: center;
+  font-size: 16px;
+}
+form div {
+  margin: 20px 0;
+}
+#generator input, select {
+  margin: 1em; 
+  padding: .2em;
+}
