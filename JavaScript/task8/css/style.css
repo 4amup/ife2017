@@ -1,0 +1,19 @@
+#container {
+  margin: 0 auto;
+}
+div {
+  border: 1px solid black;
+  width: 90%;
+  margin: 0 5px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+}
+.control {
+  margin: 0 auto;
+  border: none;
+}
+.mark {
+  background-color: blue;
+}
