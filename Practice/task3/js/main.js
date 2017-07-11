@@ -22,6 +22,8 @@ window.onload = () => {
   let role = document.getElementById('role')
   let generator = document.getElementById('generator')
   role.addEventListener('click', toggleRole);
+  
+  // 监听role改变的事件函数
   function toggleRole (ev) {
     let tagName = ev.target.tagName.toLowerCase();
     if (tagName === 'input') {
@@ -29,6 +31,8 @@ window.onload = () => {
       display(role);
     }
   }
+  
+  // role改变时，为id=generator的div元素显示正确的元素
   function display (role) {
     switch (role) {
       case 'student': {
@@ -56,27 +60,19 @@ window.onload = () => {
         // 生成一个该城市的大学select
         let uniSelect = document.createElement('select');
         uniSelect.name = 'university';
-        // 为其添加数据
-        let unis = obj.beijing.university;
-        for (let i=0; i<unis.length; i++) {
-          let option = document.createElement('option');
-          option.value = unis[i];
-          option.innerHTML = unis[i];
-          uniSelect.appendChild(option);
-        }
         generator.appendChild(uniSelect);
+        // 为其添加数据
+        let unisOfbj = obj.beijing.university;
+        // 调用函数渲染options
+        renderOption(unisOfbj, uniSelect);
+        
         citySelect.onchange = function () {
           // 一旦改变，就取一下当前城市的值，然后重新渲染option
           let city = citySelect.value;
           uniSelect.innerHTML = '';
           
-          let university = obj[city].university;
-          for(let i=0; i<university.length; i++) {
-            let option = document.createElement('option');
-            option.value = university[i];
-            option.innerHTML = university[i];
-            uniSelect.appendChild(option);
-          }
+          let unis = obj[city].university;
+          renderOption(unis, uniSelect);
         }
         break;
       }
@@ -96,6 +92,16 @@ window.onload = () => {
         generator.appendChild(input);
         break;
       }
+    }
+  }
+
+  // 依据城市，渲染相应的大学option
+  function renderOption (data, parent) {
+    for(let i=0; i<data.length; i++) {
+      let option = document.createElement('option');
+      option.value = data[i];
+      option.innerHTML = data[i];
+      parent.appendChild(option);
     }
   }
 }
