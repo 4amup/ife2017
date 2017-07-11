@@ -1,31 +1,51 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <title>task7二叉树</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="container">
-      <div>
-        <div>
-          <div>
-            <div></div>
-          </div>
-        </div>
-        <div></div>
+<html>
+<head>
+  <title>task22</title>
+  <meta charset="utf-8">
+  <style type="text/css">
+    .container{
+      margin: 1em auto;
+    }
+    div{
+      background-color: white;
+      border:1px black solid;
+      display: flex;
+      padding: .5em 1em;
+      margin: .5em;
+      justify-content: space-around;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper" class="container">
+    <div class="layer1">
+      <div class="layer2">
+        <div class="layer3"></div>
+        <div class="layer3"></div>
       </div>
-      <div>
-        <div></div>
-        <div></div>
+      <div class="layer2">
+        <div class="layer3"></div>
+        <div class="layer3"></div>
       </div>
     </div>
-    <div class="control">
-      <button id="traversal">前序遍历</button>
-      <button id="">中序遍历</button>
-      <button id="">后序遍历</button>
+    <div class="layer1">
+      <div class="layer2">
+        <div class="layer3"></div>
+        <div class="layer3"></div>
+      </div>
+      <div class="layer2">
+        <div class="layer3"></div>
+        <div class="layer3"></div>
+      </div>
     </div>
-    <script src="js/global.js"></script>
-  </body>
+  </div>
+  <div>
+    <button id="preOrder">前序遍历</button>
+    <button id="inOrder">中序遍历</button>
+    <button id="postOrder">后序遍历</button>
+  </div>
+  <script type="text/javascript" src="js/global.js"></script>
+</body>
 </html>
