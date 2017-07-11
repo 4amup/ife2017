@@ -1,21 +1,21 @@
 // nodeList并不是数组，不能使用forEach、map和filter等方法
 
-var inputs = document.getElementsByTagName('input');
-var form = document.getElementsByTagName('form')[0];
-var helpBlock = document.getElementsByClassName('help-block');
-var flag = {
-    name: false,
-    pw1: false,
-    pw2: false,
-    email: false,
-    tel: false
-};
+let inputs = document.getElementsByTagName('input');
+let form = document.getElementsByTagName('form')[0];
+let helpBlock = document.getElementsByClassName('help-block');
 
 // 先把tips隐藏起来
 for(let i=0; i<helpBlock.length; i++) {
     helpBlock[i].style.display = 'none';
 }
+// 为formGroups添加flag属性
+let formGroups = document.getElementsByClassName('form-group');
+for(let i=0; i<formGroups.length; i++) {
+    formGroups[i].flag = false;
+}
+
 // focus回调函数
+// 如果focus的元素是input，那么就先显示helpBlock提示信息
 function focusFn (event) {
     let tagName = event.target.tagName.toLowerCase();
     if(tagName === 'input') {
@@ -24,6 +24,7 @@ function focusFn (event) {
     }
 }
 // blur回调函数
+// 如果blur的元素是input，那么就验证一下，验证函数是validate
 function blurFn (event) {
     let tagName = event.target.tagName.toLowerCase();
     if(tagName === 'input') {
@@ -33,16 +34,20 @@ function blurFn (event) {
 
 // 全部校验函数
 function validate(id, item, target) {
+    // 先定义了提示信息和包裹input的那个div元素
     let helpBlock = target.parentNode.getElementsByTagName('span')[0];
     let formGroup = target.parentNode.parentNode;
 
-    // 将输入框变成成功的绿色或错误的红色
-    function successOrFail (node, i) {
+    // 通过form-group添加属性变成成功的绿色或错误的红色，然后为该节点添加一个flag属性，定义验证成功或失败
+    function successOrFail (node, flag) {
+        // 保存原先的属性名，要不会被冲掉
         let oldClass = "form-group";
-        if(i) {
+        if(flag) {
             node.className = oldClass + ' ' + 'has-success';
+            node['flag'] = true;
         } else {
             node.className = oldClass + ' ' + 'has-error';
+            node['flag'] = false;
         }    
     }
 
@@ -87,13 +92,11 @@ function validate(id, item, target) {
             }
             helpBlock.textContent = '通过';
             successOrFail(formGroup, true);
-            flag.name = true;
             break;
         }
         
         case "password1": {
             pwPass(item);
-            flag.pw1 = true;
             break;
         }
             
@@ -107,7 +110,6 @@ function validate(id, item, target) {
             }
             helpBlock.textContent = '密码确认无误';
             successOrFail(formGroup, true);
-            flag.pw2 = true;
             break;
         }
         case "email": {
@@ -119,7 +121,6 @@ function validate(id, item, target) {
             }
             helpBlock.textContent = '邮箱输入正确';
             successOrFail(formGroup, true);
-            flag.email = true;
             break;
         }
         case "tel": {
@@ -131,7 +132,6 @@ function validate(id, item, target) {
             }
             helpBlock.textContent = '手机输入正确';
             successOrFail(formGroup, true);
-            flag.tel = true;
             break;
         }
     }
@@ -141,9 +141,11 @@ function validate(id, item, target) {
 document.body.addEventListener('focus', focusFn, true);
 document.body.addEventListener('blur', blurFn, true);
 document.getElementById('submit').onclick = function() {
-    if(flag.name && flag.pw1 && flag.pw2 && flag.email && flag.tel) {
-        alert('校验通过');
-    } else {
-        alert('校验失败');
+    for(let i=0; i<formGroups.length; i++) {
+        if(!formGroups[i]['flag']) {
+            alert('校验失败！');
+            return;
+        }
     }
+    alert('校验成功！');
 }
