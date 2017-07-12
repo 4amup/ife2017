@@ -34,16 +34,30 @@ window.onload = function () {
     ctx.stroke();
   }
 
+  // 定义小方块
   let move = document.getElementById('move');
   move.width = 550;
   move.height = 550;
   let moveCtx = move.getContext('2d');
+  // 定义可以移动的x和y坐标数组
+  let coordinate = {
+    x: [],
+    y: []
+  }
+  for(let i=0; i<10; i++) {
+    coordinate.x.push(50+i*50);
+    coordinate.y.push(50+i*50);
+  }
+  // 打印出坐标数组，没毛病
+  console.log(coordinate.x);
+  console.log(coordinate.y);
+
   // 为矩形填充颜色
   moveCtx.fillStyle="red";
-  moveCtx.fillRect(0,0,50,50);
+  moveCtx.fillRect(50,50,50,50);
   moveCtx.stroke();
   moveCtx.fillStyle="blue";
-  moveCtx.fillRect(0,0,50,15);
+  moveCtx.fillRect(50,50,50,15);
   moveCtx.stroke();
 
 }
