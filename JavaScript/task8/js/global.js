@@ -1,8 +1,9 @@
-var result = [];//用于存放遍历的dom节点
-var timer = null;//定义动画定时器
+let result = [];//用于存放遍历的dom节点
+let timer = null;//定义动画定时器
 
 window.onload = function(){
-  var rootNode = document.getElementById("wrapper");
+  let container = document.getElementsByClassName('container')[0];
+  let root = document.getElementById('root');
   //为前序遍历按钮绑定事件
   document.getElementById("preOrder").onclick = function(){
     //环境初始化
@@ -10,7 +11,7 @@ window.onload = function(){
     clearInterval(timer);
     result = [];
 
-    preOrder(rootNode);
+    preOrder(root);
     startAnimate();
   }
   //为中序遍历按钮绑定事件
@@ -20,7 +21,7 @@ window.onload = function(){
     clearInterval(timer);
     result = [];
 
-    inOrder(rootNode);
+    inOrder(root);
     startAnimate();
   }
   //为后序遍历按钮绑定事件
@@ -30,7 +31,7 @@ window.onload = function(){
     clearInterval(timer);
     result = [];
 
-    postOrder(rootNode);
+    postOrder(root);
     startAnimate();
   }
 }
@@ -73,9 +74,9 @@ function postOrder(node){
   }
   result.push(node);
 }
-//动画开启函数，每隔一秒
+//动画开启函数，每隔0.5秒
 function startAnimate(){
-  var i = 0;
+  let i = 0;
   result[i].style.backgroundColor = 'blue';
   timer = setInterval(function(){
     i++;
@@ -86,12 +87,12 @@ function startAnimate(){
       clearInterval(timer);
       result[result.length-1].style.backgroundColor = '#fff';
     }
-  }, 200)
+  }, 500)
 }
 //样式初始化函数
 function styleReset(){
-  var divEles = document.getElementsByTagName("div");
-  for(var i=0; i<divEles.length;i++){
+  let divEles = document.getElementsByTagName("div");
+  for(let i=0; i<divEles.length;i++){
     divEles[i].style.backgroundColor = '#fff';
   }
 }

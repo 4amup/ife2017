@@ -1,19 +1,24 @@
-#container {
-  margin: 0 auto;
+.container{
+  margin: 1em auto;
+  text-align: center;
+  font-size: 20px;
 }
-div {
-  border: 1px solid black;
-  width: 90%;
-  margin: 0 5px;
-  padding: 20px;
-  display: flex;
-  justify-content: space-around;
+.container div{
+  font-size: 14px;
   background-color: white;
+  border:1px black solid;
+  display: flex;
+  padding: .2em;
+  margin: 1em .2em;
+  justify-content: space-around;
+  text-align: center;
 }
-.control {
-  margin: 0 auto;
-  border: none;
+#control {
+  display: flex;
+  justify-content: center;
 }
-.mark {
-  background-color: blue;
+#control button {
+  font-size: 16px;
+  margin: 1em;
+  padding: .2em;
 }
