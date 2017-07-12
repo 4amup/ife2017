@@ -1,0 +1,21 @@
+#wrapper{
+  margin: auto;
+  text-align: center;
+}
+.container div{
+  background-color: white;
+  border:1px black solid;
+  display: flex;
+  padding: .2em;
+  margin: 1em .2em;
+  justify-content: space-around;
+  text-align: center;
+}
+.control {
+  display: flex;
+  justify-content: center;
+}
+.control button, .control input {
+  margin: 1em;
+  padding: .2em;
+}
