@@ -1,9 +1,15 @@
 .container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.panel {
   display: flex; 
   flex-direction: column;
   align-items: center;
 }
 .cans {
+  position: relative;
   margin: 0;
   padding: 0;
   height: 550px;
@@ -11,6 +17,8 @@
 }
 canvas {
   position: absolute;
+  left: 0;
+  top: 0;
 }
 .control {
   margin: auto;
@@ -20,8 +28,23 @@ canvas {
   padding: .2em .5em;
 }
 ul {
+  font-size: 14px;
+  padding: 1em 0;
   display: flex;
+  flex-direction: column;
 }
-ul li {
-  margin: 0 1em;
+
+#move {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  /* 如果js失效了，还可以显示个基本的位置 */
+  left: 50px;
+  top: 50px;
+}
+#move div {
+  width: 50px;
+  height: 15px;
+  background-color: blue;
 }
