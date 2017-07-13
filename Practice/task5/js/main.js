@@ -87,6 +87,25 @@ window.onload = function () {
         move.style.top = `${theBlock.y}px`;
         break;
       }
+      case 'mov lef': {
+        theBlock.x -= 50;
+        filter();
+        move.style.transform = 'rotate(-90deg)';
+        move.style.left = `${theBlock.x}px`;
+        break;
+      }
+      case 'mov top': {
+        
+        break;
+      }
+      case 'mov rig': {
+        
+        break;
+      }
+      case 'mov bot': {
+        
+        break;
+      }
       case '' : {
         alert('命令为空，请输入命令');
         break;

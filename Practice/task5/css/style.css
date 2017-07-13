@@ -42,7 +42,7 @@ ul {
   /* 如果js失效了，还可以显示个基本的位置 */
   left: 50px;
   top: 50px;
-  transition: 1s left, 1s top;
+  transition: 1s left, 1s top, 1s transform;
 }
 
 #move div {
