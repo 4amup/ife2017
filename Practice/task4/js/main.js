@@ -52,12 +52,16 @@ window.onload = function () {
   console.log(coordinate.x);
   console.log(coordinate.y);
 
-  // 为矩形填充颜色
-  moveCtx.fillStyle="red";
-  moveCtx.fillRect(50,50,50,50);
-  moveCtx.stroke();
-  moveCtx.fillStyle="blue";
-  moveCtx.fillRect(50,50,50,15);
-  moveCtx.stroke();
+  // 为矩形填充颜色的函数
+  function theBlock (x, y) {
+    moveCtx.fillStyle="#000000";
+    moveCtx.fillStyle="red";
+    moveCtx.fillRect(x,y,50,50);
+    moveCtx.stroke();
+    moveCtx.fillStyle="blue";
+    moveCtx.fillRect(x,y,50,15);
+    moveCtx.stroke();
+  }
 
+  theBlock(150, 450);
 }
