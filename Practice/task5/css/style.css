@@ -35,14 +35,16 @@ ul {
 }
 
 #move {
-  position: absolute;
+  position: relative;
   width: 50px;
   height: 50px;
   background-color: red;
   /* 如果js失效了，还可以显示个基本的位置 */
   left: 50px;
   top: 50px;
+  transition: 1s left, 1s top;
 }
+
 #move div {
   width: 50px;
   height: 15px;

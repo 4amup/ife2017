@@ -54,9 +54,65 @@ window.onload = function () {
   let Y = coordinate.y[Math.floor(Math.random()*coordinate.y.length)];
 
   // 初始化小方块
-  move.style.left = `${X}px`;
-  move.style.top = `${Y}px`;
+  let theBlock = {x: X,y: Y}
+  move.style.left = `${theBlock.x}px`;
+  move.style.top = `${theBlock.y}px`;
 
+  // 为执行按钮绑定事件
+  document.getElementById('command').onclick = function () {
+    let command = document.getElementById('input').value.toLowerCase();
+
+    switch(command) {
+      case 'tra lef': {
+        theBlock.x -= 50;
+        filter();
+        move.style.left = `${theBlock.x}px`;
+        break;
+      }
+      case 'tra top': {
+        theBlock.y -= 50;
+        filter();
+        move.style.top = `${theBlock.y}px`;
+        break;
+      }
+      case 'tra rig': {
+        theBlock.x += 50;
+        filter();
+        move.style.left = `${theBlock.x}px`;
+        break;
+      }
+      case 'tra bot': {
+        theBlock.y += 50;
+        filter();
+        move.style.top = `${theBlock.y}px`;
+        break;
+      }
+      case '' : {
+        alert('命令为空，请输入命令');
+        break;
+      }
+      default : {
+        alert('命令输入错误，请核对后再次输入');
+        input.value = '';
+      }
+    }
+  }
+
+  // 若超过坐标范围，则强制将坐标置为边界值
+  function filter () {
+    if(theBlock.x>500) {
+      theBlock.x = 500;
+    }
+    if(theBlock.y>500) {
+      theBlock.y = 500;
+    }
+    if(theBlock.x<50) {
+      theBlock.x = 50;
+    }
+    if(theBlock.y<50) {
+      theBlock.y = 50;
+    }
+  }
 
 
 
@@ -213,19 +269,4 @@ window.onload = function () {
 //     }
 //   }
 
-//   // 若超过坐标范围，则强制将坐标置为边界值
-//   function filter () {
-//     if(block.x>500) {
-//       block.x = 500;
-//     }
-//     if(block.y>500) {
-//       block.y = 500;
-//     }
-//     if(block.x<50) {
-//       block.x = 50;
-//     }
-//     if(block.y<50) {
-//       block.y = 50;
-//     }
-//   }
 }
