@@ -52,16 +52,55 @@ window.onload = function () {
   console.log(coordinate.x);
   console.log(coordinate.y);
 
-  // 为矩形填充颜色的函数
-  function theBlock (x, y) {
-    moveCtx.fillStyle="#000000";
+  // 移动矩形block的函数
+  function theBlock (x, y, z, w) {
+    moveCtx.clearRect(0,0,550,550); // 清除画布
+
     moveCtx.fillStyle="red";
     moveCtx.fillRect(x,y,50,50);
-    moveCtx.stroke();
     moveCtx.fillStyle="blue";
-    moveCtx.fillRect(x,y,50,15);
+    moveCtx.fillRect(x,y,z,w);
     moveCtx.stroke();
   }
 
-  theBlock(150, 450);
+  // 为小方块定义一个对象
+
+  // init第一次出现的位置
+  let X = coordinate.x[Math.floor(Math.random()*coordinate.x.length)];
+  let Y = coordinate.y[Math.floor(Math.random()*coordinate.y.length)];
+  let Z = 50;
+  let W = 15;
+  let block = {x: X, y: Y, z: Z, w: W};
+  // 初始化小方块
+  theBlock(block.x, block.y, block.z, block.w);
+
+  // 为执行按钮绑定事件
+  document.getElementById('command').onclick = function () {
+    let command = document.getElementById('input').value.toLowerCase();
+    if(!command) {
+      alert('请输入命令再执行');
+      return;
+    }
+    switch(command) {
+      case 'go': {
+        block.x += 0;
+        block.y -= 50;
+        if (!validate()) return;
+        theBlock(block.x, block.y, block.z, block.w);
+        break;
+      }
+      case 'tun lef': {
+        moveCtx.rotate(90*Math.PI/180);
+        theBlock(block.x, block.y, block.z, block.w);        
+      }
+    }
+  }
+
+  // 验证小方块是否在坐标范围内
+  function validate () {
+    if(block.x>500 || block.y>500 || block.x<50 || block.y<50) {
+      return false;
+    }
+    return true;
+  }
 }
