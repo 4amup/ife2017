@@ -54,7 +54,7 @@ window.onload = function () {
   let Y = coordinate.y[Math.floor(Math.random()*coordinate.y.length)];
 
   // 初始化小方块
-  let theBlock = {x: X,y: Y}
+  let theBlock = {x: X,y: Y, rotate: 0};
   move.style.left = `${theBlock.x}px`;
   move.style.top = `${theBlock.y}px`;
 
@@ -90,20 +90,29 @@ window.onload = function () {
       case 'mov lef': {
         theBlock.x -= 50;
         filter();
-        move.style.transform = 'rotate(-90deg)';
+        move.style.transform = `rotate(-90deg)`;
         move.style.left = `${theBlock.x}px`;
         break;
       }
       case 'mov top': {
-        
+        theBlock.y -= 50;
+        filter();
+        move.style.transform = `rotate(0deg)`;
+        move.style.top = `${theBlock.y}px`;
         break;
       }
       case 'mov rig': {
-        
+        theBlock.x += 50;
+        filter();  
+        move.style.transform = `rotate(90deg)`;
+        move.style.left = `${theBlock.x}px`;        
         break;
       }
       case 'mov bot': {
-        
+        theBlock.y += 50;
+        filter();
+        move.style.transform = `rotate(180deg)`;
+        move.style.top = `${theBlock.y}px`;        
         break;
       }
       case '' : {
