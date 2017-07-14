@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .container {
@@ -18,4 +19,42 @@
 
 #button {
   margin: 2em;
+}
+
+.layer {
+  /* 居中 */
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* 居中 */
+  background-color: #fff;
+  font-size: 16px;
+  border: 1px solid #000;
+}
+
+.layer .header {
+  padding: 1em;
+  background-color: gray;
+  border-bottom: 1px solid #000;
+  color: #fff;
+}
+
+.layer .content {
+  padding: 1em;
+}
+.layer button {
+  margin: .5em;
+  padding: .5em 2.5em;
+  background-color: gray;
+  border: 1px solid #000;
+  color: #fff;
+}
+
+.layer .control {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
