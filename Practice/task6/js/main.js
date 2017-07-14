@@ -1,14 +1,16 @@
 window.onload = function () {
-  // 创建一个div，将body一级下面的全部包住，提供遮罩的效果；
+  // 创建一个shadow，将body下面的全部包住，提供遮罩的效果；
   let shadow = document.createElement('div');
   shadow.setAttribute('class', 'shadow');
   shadowSize();
-  // 窗口一旦被调整，重新为shadow赋值
+  // 绑定事件，窗口一旦被调整，重新为shadow赋值
   window.onresize = shadowSize;
 
+  // 创建浮出层
   let layer = createLayer(500, 300, '这是一个浮出层', '这是一个浮出层');
-  shadow.appendChild(layer);
   
+  // 将元素添加到文档中
+  shadow.appendChild(layer);
   document.body.appendChild(shadow);
 
   // 默认不显示浮出层
@@ -20,7 +22,15 @@ window.onload = function () {
     shadow.style.display = 'block';
   }
 
-  // 创建浮出层的那个div
+  // 为遮罩绑定事件
+  shadow.addEventListener('click', function (ev) {
+    if (ev.target.className == 'shadow') {
+      shadow.style.display = 'none';
+    }
+    return false;
+  }, false);
+
+  // 创建浮出层的函数
   function createLayer (width, height, content, header) {
     let layer = document.createElement('div');
     layer.className = 'layer';
