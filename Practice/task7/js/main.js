@@ -89,7 +89,17 @@ window.onload = function () {
     let thead = document.createElement('thead');
     header.forEach((value, index) => {
       let th = document.createElement('th');
-      th.innerHTML = value;
+      th.textContent = value;
+      
+      let sorts = document.createElement('div');
+      let sortup = document.createElement('div');
+      sortup.innerHTML = '<i class="fa fa-sort-asc"></i>';
+      let sortdowm = document.createElement('div');
+      sortdowm.innerHTML = '<i class="fa fa-sort-desc"></i>';
+      sorts.appendChild(sortup);
+      sorts.appendChild(sortdowm);
+      
+      th.appendChild(sorts);
       thead.appendChild(th);
     });
 
