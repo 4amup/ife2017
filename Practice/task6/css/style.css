@@ -3,3 +3,10 @@
   text-align: center;
   height: 2000px; /* 将height设置大点，用于测试屏幕滚动时，浮出层是否在中央。*/
 }
+
+.shadow {
+  background-color: rgba(134,138,14, .3);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
