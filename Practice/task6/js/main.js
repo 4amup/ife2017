@@ -24,10 +24,14 @@ window.onload = function () {
 
   // 为遮罩绑定事件
   shadow.addEventListener('click', function (ev) {
+    // 如果是shadow元素本体，则关闭显示遮罩
     if (ev.target.className == 'shadow') {
       shadow.style.display = 'none';
     }
-    return false;
+    // 为确定和取消绑定取消显示事件
+    if (ev.target.tagName == 'BUTTON') {
+      shadow.style.display = 'none';      
+    }
   }, false);
 
   // 创建浮出层的函数
