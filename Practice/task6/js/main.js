@@ -1,19 +1,24 @@
 window.onload = function () {
-  let button = document.getElementById('button');
   // 创建一个div，将body一级下面的全部包住，提供遮罩的效果；
   let shadow = document.createElement('div');
   shadow.setAttribute('class', 'shadow');
-  // 取窗口的宽和高
-  let width = document.body.clientWidth;
-  let height = document.body.clientHeight;
-  // 将shadow的宽高设置好
-  shadow.style.width = width+'px';
-  shadow.style.height = height+'px';
+  shadowSize();
+  // 窗口一旦被调整，重新为shadow赋值
+  window.onresize = shadowSize;
 
   let layer = createLayer(500, 300, '这是一个浮出层', '这是一个浮出层');
   shadow.appendChild(layer);
   
   document.body.appendChild(shadow);
+
+  // 默认不显示浮出层
+  shadow.style.display = 'none';
+
+  // 为按钮绑定事件，按下后显示浮出层
+  let button = document.getElementById('button');
+  button.onclick = function () {
+    shadow.style.display = 'block';
+  }
 
   // 创建浮出层的那个div
   function createLayer (width, height, content, header) {
@@ -51,4 +56,15 @@ window.onload = function () {
 
     return layer;
   }
+
+  // 行为函数，根据窗口大小，调整shadow的大小
+  function shadowSize () {
+    // 取窗口的宽和高
+    let width = document.body.clientWidth;
+    let height = document.body.clientHeight;
+    // 将shadow的宽高设置好
+    shadow.style.width = width+'px';
+    shadow.style.height = height+'px';
+  }
+
 }
