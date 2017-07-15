@@ -25,7 +25,7 @@ window.onload = function () {
   }
   // 根据数据初始化基本的表格
   let container = document.getElementsByClassName('container')[0];
-  container.appendChild(generatorTable(Grade));
+  container.appendChild(generatorTable(Data));
 
   // 为2345列th增加排序按钮
   addSortButton([2, 3, 4, 5]);
@@ -50,70 +50,39 @@ window.onload = function () {
 
   // 根据列名排序函数
   function sortClass (key) {
-    
+    //
     return Grade;
   }
 
   // 设置函数，参数是json数据，在dom中生成表格
-  function generatorTable () {
+  function generatorTable (data) {
     let table = document.createElement('table');
-    let keys = Object.keys(Grade);
-    // 先取第一个对象，把相应的名称取出来。    
-    let xiaoming = Grade[Object.keys(Grade)[0]];
-    // let header = [];
-    // header.push(xiaoming.name.zh);
-    // header.push(xiaoming.language.zh);
-    // header.push(xiaoming.math.zh);
-    // header.push(xiaoming.english.zh);
-    // header.push('总分');
-    
-    // // 建立head
-    // let thead = document.createElement('thead');
-    // header.forEach((value, index) => {
-    //   let th = document.createElement('th');
-    //   th.textContent = value;
-    //   // 添加列名
-    //   thead.appendChild(th);
-    // });
 
     // // 建立head
     let thead = document.createElement('thead');
-
-    let xiaomingkeys = Object.keys(xiaoming);
-    for(let i=0; i<xiaomingkeys.length; i++) {
+    data.thead.forEach((value, index) => {
       let th = document.createElement('th');
-      th.textContent = xiaoming[xiaomingkeys[i]].zh;
-      th.className = xiaomingkeys[i];
-      thead.appendChild(th);
-    }
+      th.textContent = value;
+      thead.appendChild(th);      
+    })
 
-    let th = document.createElement('th');
-
+    // 计算sum后将数据更新
+    data.students.forEach((student, index) => {
+      student.sum = student.yuwen + student.math + student.english;
+    });
 
 
     let tbody = document.createElement('tbody');
-
-    for(let i=0; i<keys.length; i++) {
-      // 建立一行
+    data.students.forEach((student, index) => {
       let tr = document.createElement('tr');
-      // td数据先存数组
-      let arr = [];
-      arr.push(Grade[keys[i]].name.value);
-      arr.push(Grade[keys[i]].language.grade);
-      arr.push(Grade[keys[i]].math.grade);
-      arr.push(Grade[keys[i]].english.grade);
-      // 计算总分后返回数据
-      Grade[keys[i]].sum.grade = arr[1]+arr[2]+arr[3];
-      arr.push(Grade[keys[i]].sum.grade);
-      // 循环创建td
-      arr.forEach((value, index) => {
+      let studentkeys = Object.keys(student);
+      for(let i=0; i<studentkeys.length; i++) {
         let td = document.createElement('td');
-        td.textContent = value;
+        td.textContent = student[studentkeys[i]];
         tr.appendChild(td);
-      });
-      // 将创建的这行添加到table中
+      }
       tbody.appendChild(tr);
-    }
+    });
 
     // 将标题和内容添加到表格中
     table.appendChild(thead);
