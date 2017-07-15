@@ -1,79 +1,28 @@
 window.onload = function () {
   //需要一个json格式的数据
   // 先自己写一个json格式的数据做测试
-  // zh属性表示中文
-  let gradeData = {
-    "xiaoming": {
-      "name": {
-        "zh": "姓名",
-        "value": "小明"
-      },
-      "language": {
-        "zh": "语文",
-        "grade": 80
-      },
-      "math": {
-        "zh": "数学",
-        "grade": 90
-      },
-      "english": {
-        "zh": "英文",
-        "grade": 70
-      },
-      "sum": {
-        "zh": "总分",
-        "grade": null
-      }
-    },
-    "xiaohong": {
-      "name": {
-        "zh": "姓名",
-        "value": "小红"
-      },
-      "language": {
-        "zh": "语文",
-        "grade": 90
-      },
-      "math": {
-        "zh": "数学",
-        "grade": 60
-      },
-      "english": {
-        "zh": "英文",
-        "grade": 90
-      },
-      "sum": {
-        "zh": "总分",
-        "grade": null
-      }
-    },
-    "xiaoliang": {
-      "name": {
-        "zh": "姓名",
-        "value": "小亮"
-      },
-      "language": {
-        "zh": "语文",
-        "grade": 60
-      },
-      "math": {
-        "zh": "数学",
-        "grade": 100
-      },
-      "english": {
-        "zh": "英文",
-        "grade": 70
-      },
-      "sum": {
-        "zh": "总分",
-        "grade": null
-      }
-    }
+  let Data = {
+    "thead": ["姓名", "语文", "数学", "英文", "总分"],
+    "students": [{
+      "name": "小明",
+      "yuwen": 80,
+      "math": 90,
+      "english": 70,
+      "sum": null
+    }, {
+      "name": "小红",
+      "yuwen": 90,
+      "math": 60,
+      "english": 90,
+      "sum": null
+    }, {
+      "name": "小亮",
+      "yuwen": 60,
+      "math": 100,
+      "english": 70,
+      "sum": null
+    }]
   }
-  gradeData = JSON.stringify(gradeData);
-  // 将json数据解析为对象
-  let Grade = JSON.parse(gradeData);
-
   // 根据数据初始化基本的表格
   let container = document.getElementsByClassName('container')[0];
   container.appendChild(generatorTable(Grade));
