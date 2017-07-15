@@ -31,7 +31,7 @@ window.onload = function () {
   addSortButton([2, 3, 4, 5]);
 
   // 实现排序的逻辑，来一个事件监听器
-  document.getElementsByTagName('thead')[0].addEventListener('click', sortData);
+  document.getElementsByTagName('thead')[0].addEventListener('click', sortTbody);
 
   // 和事件绑定的排序函数
   function sortTbody (ev) {
@@ -39,19 +39,34 @@ window.onload = function () {
     if (node.className === 'fa fa-sort-asc') {
       // 先定位列
       let colClassName = node.parentNode.parentNode.className;
-      let sortData = sortClass(colClassName);
-      render(sortData);
-    } else if (node.className === 'fa fa-sort-asc') {
-      let col = node.parentNode.parentNode.className;
+      let sortData = sortClass(colClassName, 1);
+      renderTbody(sortData);
+    } else if (node.className === 'fa fa-sort-desc') {
+      let colClassName = node.parentNode.parentNode.className;
+      let sortData = sortClass(colClassName, 0);
+      renderTbody(sortData);
     } else {
       return;
     }
   }
 
   // 根据列名排序函数
-  function sortClass (key) {
-    //
-    return Grade;
+  function sortClass (key, way) {
+    let index = key.slice(-1);
+    let keys = [null, "yuwen", "math", "english", "sum"];
+    if (way) {
+      Data.students.sort(compareFn);
+      function compareFn (a, b) {
+        return a[keys[index]] - b[keys[index]];
+      }
+    return Data;
+    } else {
+      Data.students.sort(compareFn);
+      function compareFn (a, b) {
+        return b[keys[index]] - a[keys[index]]; 
+      }
+      return Data;
+    }
   }
 
   // 设置函数，参数是json数据，在dom中生成表格
@@ -63,6 +78,7 @@ window.onload = function () {
     data.thead.forEach((value, index) => {
       let th = document.createElement('th');
       th.textContent = value;
+      th.className = 'col-'+index;
       thead.appendChild(th);      
     })
 
@@ -71,7 +87,7 @@ window.onload = function () {
       student.sum = student.yuwen + student.math + student.english;
     });
 
-
+    // 初始化渲染tbody
     let tbody = document.createElement('tbody');
     data.students.forEach((student, index) => {
       let tr = document.createElement('tr');
@@ -82,13 +98,30 @@ window.onload = function () {
         tr.appendChild(td);
       }
       tbody.appendChild(tr);
-    });
+    });      
 
     // 将标题和内容添加到表格中
     table.appendChild(thead);
     table.appendChild(tbody);
     return table;
   }
+
+  // 渲染tbody部分的数据
+  function renderTbody (data) {
+    let tbody = document.getElementsByTagName('tbody')[0];
+    tbody.innerHTML = '';
+    data.students.forEach((student, index) => {
+      let tr = document.createElement('tr');
+      let studentkeys = Object.keys(student);
+      for(let i=0; i<studentkeys.length; i++) {
+        let td = document.createElement('td');
+        td.textContent = student[studentkeys[i]];
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    });      
+  }
+
   // 添加按钮的功能需要抽象出来，参数[1, 3 ,5]，即表示对第1、3、5列增加排序按钮
   function addSortButton (arr) {
     // 取出所有的th
