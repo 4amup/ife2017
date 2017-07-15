@@ -92,12 +92,12 @@ window.onload = function () {
       th.textContent = value;
       
       let sorts = document.createElement('div');
-      let sortup = document.createElement('div');
-      sortup.innerHTML = '<i class="fa fa-sort-asc"></i>';
-      let sortdowm = document.createElement('div');
-      sortdowm.innerHTML = '<i class="fa fa-sort-desc"></i>';
+      let sortup = document.createElement('i');
+      sortup.className = 'fa fa-sort-asc';
+      let sortdown = document.createElement('i');
+      sortdown.className = 'fa fa-sort-desc';
       sorts.appendChild(sortup);
-      sorts.appendChild(sortdowm);
+      sorts.appendChild(sortdown);
       
       th.appendChild(sorts);
       thead.appendChild(th);
