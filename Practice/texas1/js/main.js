@@ -4,7 +4,6 @@ window.onload = () => {
 
   // 定义扑克数组
   let cards = Object.keys(String(new Array(53)));
-  console.log(cards);
 
   // 每个用户一个div放牌，实验阶段每人发五张牌
   let pokerArea = document.getElementById('pokerArea');
@@ -13,6 +12,39 @@ window.onload = () => {
   document.getElementById('reset').onclick = reset;
 
   document.getElementById('send').onclick = sendCard;
+
+
+  document.getElementById('compare').onclick = function () {
+    judgeCard([2, 6, 10, 14, 42, 11]);
+  }
+  // 写一个牌型判定的函数，传入一个数组，5-7长度
+  // 对4取余数是判定花色，倍数就是点数
+  function judgeCard (arr) {
+    // 限制条件，参数必须是一个长度为5-7的数组
+    if (arr.length<5 || arr.length>7) return;
+
+    // 先排序，sort默认从小到大，注意数字排序默认会按1,11,22这么排列
+    arr.sort((a, b) => {
+      return a-b;
+    });
+    
+    // 先判断同花
+    let huase = arr.map((value) => {
+      return value%4;
+    });
+    // 至少5个相同才是同花
+    let huaseSet = new Set(huase);
+    if((huase.length-huaseSet.size)>=4){
+      console.log('同花');
+    }
+
+    // 再判断点数
+    let dian = arr.map((value) => {
+      return Math.floor(value/4);
+    });
+    // todo
+
+  }
 
   // 发牌函数，发几张牌
   function sendCard () {
