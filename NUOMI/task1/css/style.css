@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 400px;
+  background-image: url('../images/zhizunbao.png'); 
+  /* filter: blur(10px); */
+  background-size: cover;
+}
+#content {
+  border: 2px solid #fff;
+  padding: 3em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: showme 5s;
+}
+#content a {
+  font-size: 18px;
+  text-decoration: none;
+  color: yellowgreen;
+  font-weight: bold;
+}
+#content a:hover {
+  color: sandybrown;
+}
+#content h1 {
+  text-align: center;
+  background-image: linear-gradient(to right, red, steelblue, red, steelblue);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; 
+  animation: stream 3s infinite linear;
+  background-size: 200% 100%; 
+}
+@keyframes stream {
+  0%  {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+@keyframes showme {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
