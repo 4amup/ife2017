@@ -1,5 +1,6 @@
 const http = require('http')
 const url = require('url')
+const fs = require('fs')
 const mongoose = require('mongoose')
 
 let app = http.createServer((req, res) => {
@@ -7,14 +8,18 @@ let app = http.createServer((req, res) => {
   if(req.url !== '/favicon.ico') {
     let parseurl = url.parse(req.url, true);
     console.log('request received')
-    console.log(parseurl);
+    console.log(parseurl.query);
     // 然后取出query参数来
     // todo
     // 做一个图形化界面，输入参数后提交
   }
-  res.writeHead(200, {"Content-Type": "text/plain"})
-  res.write("hello world")
-  res.end()
+  res.writeHead(200, {"Content-Type": "html"})
+
+  fs.readFile('index.html', 'utf-8', (err, data) => {
+    if(err) console.log(err)
+    res.write(data);
+    res.end()
+  })
 })
 
 app.listen(8000, () => {
