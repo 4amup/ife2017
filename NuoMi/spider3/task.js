@@ -5,14 +5,14 @@ var page = require('webpage').create(),
   device;
 
 // 显示中文
-phantom.outputEncoding="gb2312";
+// phantom.outputEncoding="gb2312";
 
 // 如果没有加参数，就退出
 
 // 初始化一些数值
 word = system.args[1] || 'test';
 device = system.args[2] || 'iPhone5';
-device = devicelist[device];
+device = devicelist[device] || 'iPad';
 
 // 模拟并配置设备信息
 page.settings.userAgent = device.ua;
