@@ -59,8 +59,9 @@ let app = http.createServer((req, res) => {
     res.end()
   })
 
-  // 使用子进程
-  if(query.word) {
+  // 验证参数没问题后，存入数据库
+  if(check()) {
+    // 使用子进程
     console.log('启动子进程')
     let arr = ['task.js', query.word, query.device]
     let phantomjs = spawn('phantomjs', arr);
@@ -82,6 +83,19 @@ let app = http.createServer((req, res) => {
     phantomjs.on('close', (code) => {
       console.log(`子进程退出码：${code}`);
     });
+  }
+
+  // 校验query的函数
+  function check() {
+    if(!query.word) {
+      console.log('查询词不能为空')
+      return;
+    }
+    if(['iPhone5', 'iPhone6', 'iPad'].indexOf(query.device) === -1) {
+      console.log('设备名有误')
+      return;
+    }
+    return true;
   }
 })
 
