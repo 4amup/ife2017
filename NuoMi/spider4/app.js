@@ -6,11 +6,10 @@ const http = require('http')
       ,mongoose = require('mongoose')
       ,{ spawn } = require('child_process')
 
-// // 连接数据库
+// 连接数据库
+
 // mongoose.Promise = global.Promise; // 使用node.js自带的promise
-
 // let dburl = 'mongodb://localhost:27017/spider';
-
 // mongoose.connect(dburl, {useMongoClient: false}); // 这个false不知道是啥
 // let db = mongoose.connection;
 // db.on('err', (err) => {
@@ -19,8 +18,7 @@ const http = require('http')
 // db.on('open', () => {
 //   console.log('server connected!');
 // });
-
-// // 建立数据模型
+// // 建立Schema
 // let Schema = mongoose.Schema;
 // let SpiderSchema = new Schema({
 //   code: Number,
@@ -35,17 +33,26 @@ const http = require('http')
 //   }],
 //   device: String
 // });
-
+// // 建立model
 // let Spider = mongoose.model('Spider', SpiderSchema);
+
+// 建立koa实例
 
 const app = new Koa();
 
+// 中间件
+
+// logger
+app.use(async function (ctx, next) {
+  const start = new Date();
+  await next();
+  const ms = new Date() - start;
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
+});
 // 静态文件服务器
 app.use(require('koa-static')(__dirname + '/static'));
 
-// app.use(ctx => {
-//   ctx.body = 'Hello World';
-// });
+// 监听端口
 
 app.listen(3000, () => {
   console.log('run at http://localhost:3000');
