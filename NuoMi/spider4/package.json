@@ -13,6 +13,8 @@
   "author": "lixiaochun",
   "license": "MIT",
   "dependencies": {
+    "koa": "^2.3.0",
+    "koa-static": "^4.0.1",
     "mongoose": "^4.11.3"
   }
 }
