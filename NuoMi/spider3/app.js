@@ -1,25 +1,30 @@
 const http = require('http')
-const url = require('url')
-const fs = require('fs')
-const mongoose = require('mongoose')
+      ,url = require('url')
+      ,path = require('path')
+      ,fs = require('fs')
+      ,mongoose = require('mongoose')
 
+// 创建服务器
 let app = http.createServer((req, res) => {
-  // 利用url解析出参数
-  if(req.url !== '/favicon.ico') {
-    let parseurl = url.parse(req.url, true);
-    console.log('request received')
-    console.log(parseurl.query);
-    // 然后取出query参数来
-    // todo
-    // 做一个图形化界面，输入参数后提交
-  }
-  res.writeHead(200, {"Content-Type": "html"})
+  let urlPrase = url.parse(req.url)
+  let pathname = urlPrase.pathname
+  let query = urlPrase.query
 
-  fs.readFile('index.html', 'utf-8', (err, data) => {
-    if(err) console.log(err)
-    res.write(data);
+  if(pathname.substr(-1, 1) === '/') {
+    pathname += 'index.html'
+  }
+
+  res.writeHead(200, {"Content-Type": "html"})
+  fs.readFile('static'+pathname, 'utf-8', (err, data) => {
+    if(err) {
+      res.writeHead(400)
+      res.end(404)
+    }
+    res.writeHead(200)
+    console.log('200 '+pathname)
+    res.write(data)
     res.end()
-  })
+  })  
 })
 
 app.listen(8000, () => {
