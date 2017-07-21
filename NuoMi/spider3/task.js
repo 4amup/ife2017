@@ -34,9 +34,7 @@ page.open(url, function(status) {
     res.dataList = [];
     res.device = null
   } else {
-    console.log('Searching for ' + word);
     var data = page.evaluate(function (d) {
-      console.log('page' + d);
       var results = document.getElementsByClassName('result');
       var data = [];
       for (var i=0; i<results.length; i++) {
@@ -110,6 +108,6 @@ page.open(url, function(status) {
     res.device = device.name;
   }
 
-  console.log(JSON.stringify(res, undefined, 4));
+  console.log(JSON.stringify(res));
   phantom.exit();
 });
