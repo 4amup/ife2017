@@ -1,40 +1,23 @@
 const http = require('http')
       ,Koa = require('koa')
-      ,url = require('url')
-      ,path = require('path')
-      ,fs = require('fs')
+      ,Router = require('koa-router')
       ,mongoose = require('mongoose')
       ,{ spawn } = require('child_process')
 
 // 连接数据库
 
-// mongoose.Promise = global.Promise; // 使用node.js自带的promise
-// let dburl = 'mongodb://localhost:27017/spider';
-// mongoose.connect(dburl, {useMongoClient: false}); // 这个false不知道是啥
-// let db = mongoose.connection;
-// db.on('err', (err) => {
-//   console.log('connection error!');
-// });
-// db.on('open', () => {
-//   console.log('server connected!');
-// });
-// // 建立Schema
-// let Schema = mongoose.Schema;
-// let SpiderSchema = new Schema({
-//   code: Number,
-//   msg: String,
-//   word: String,
-//   time: Number,
-//   dataList: [{
-//     title: String,
-//     info: String,
-//     link: String,
-//     pic: String
-//   }],
-//   device: String
-// });
-// // 建立model
-// let Spider = mongoose.model('Spider', SpiderSchema);
+mongoose.Promise = global.Promise; // 使用node.js自带的promise
+let dburl = 'mongodb://localhost:27017/spider';
+mongoose.connect(dburl, {useMongoClient: false}); // 这个false不知道是啥
+let db = mongoose.connection;
+db.on('err', (err) => {
+  console.log('connection error!');
+});
+db.on('open', () => {
+  console.log('server connected!');
+});
+
+let Spider = require('./model');
 
 // 建立koa实例
 
@@ -43,7 +26,7 @@ const app = new Koa();
 // 中间件
 
 // logger
-app.use(async function (ctx, next) {
+app.use(async (ctx, next) => {
   const start = new Date();
   await next();
   const ms = new Date() - start;
@@ -52,10 +35,54 @@ app.use(async function (ctx, next) {
 // 静态文件服务器
 app.use(require('koa-static')(__dirname + '/static'));
 
+// 路径
+let router = new Router();
+ 
+router.get('/', (ctx, next) => {
+  // ctx.router available
+  ctx.body = 'hello world'
+});
+ 
+app.use(router.routes())
+app.use(router.allowedMethods())
+
+router.post('/', (ctx,next) => {
+  let query = ctx.query
+  // let word =ctx.request.body.word || 0
+  // let device = ctx.request.body.device || null
+  // let query = {
+  //   word: word,
+  //   device: device
+  // }
+  if(require('./check')(query)) {
+    // 使用子进程
+    console.log('启动子进程')
+    let arr = ['task.js', query.word, query.device]
+    let phantomjs = spawn('phantomjs', arr);
+
+    phantomjs.stdout.on('data', (data) => {
+      let d = data.toString()
+      let spider = new Spider(JSON.parse(d))
+      spider.save((err, spider) => {
+        if(err) return console.log(err)
+        console.log('save the data')
+      })
+    })
+
+    phantomjs.stderr.on('data', (data) => {
+      console.log(`stderr: ${data}`)
+    })
+
+    phantomjs.on('close', (code) => {
+      console.log(`子进程退出码：${code}`);
+    })
+  }
+})
+
 // 监听端口
 
-app.listen(3000, () => {
-  console.log('run at http://localhost:3000');
+app.listen(8080, () => {
+  console.log('run at http://localhost:8080');
 });
 // 创建服务器
 // let app = http.createServer((req, res) => {
